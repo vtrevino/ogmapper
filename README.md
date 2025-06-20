@@ -17,5 +17,28 @@ ogmapper is written in c++. I provide binaries for selected operating systems an
 - Download
 
 # Compilation
-ogMapper uses the WFA2 library to perform alignment operations when needed. I provide the latest version used to compile the above binaries. Users may opt to download the lastest WFA version from https://github.com/smarco/WFA2-lib. You may follow the WFA2 instructions or follow the below steps as a guide. The idea is to build a library file suitable for ogMapper (libwfacpp.a) that is needed for the /lib folder in ogMapper.
+ogMapper uses the WFA2 library to perform alignment operations when needed. I provide the latest version used to compile the above binaries. Users may opt to download the lastest WFA version from https://github.com/smarco/WFA2-lib. You may follow the WFA2 instructions or follow the steps below as a guide. The idea is to build a library file suitable for ogMapper (libwfacpp.a) that is needed in the /lib folder to be able to compile ogMapper.
 
+Once WFA library is ok. We may proceed to compile ogMapper.
+
+## Compiling WFA2 from .zip
+Ok
+## Compiling WFA2 from https://github.com/smarco/WFA2-lib
+Ok
+## Compiling ogMapper in MacOS
+Ok
+## Compiling ogMapper in Linux
+Ok
+
+# Running ogMapper
+
+## Index Generation for DNA
+Ok
+## Mapping short DNA reads
+Ok
+## Index Generation for RNA
+Ok
+## Mapping/Counting RNA reads
+Ok
+## Other Options
+Ok
