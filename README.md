@@ -2,7 +2,7 @@
 A Fast and Light Genomic Mapper for short reads.
 
 ogMapper generates a tiny index file and memory operations, typically as a fraction of the genome size. 
-For example, 1.7 GiB for T2T human genome v2 plus 0.7 GiB for the compressed genome (file ~ 2.4 GiB) and similar amounts of memory in run time, irrespective of the number of threads.
+For example, 1.7 GiB for T2T human genome v2 plus 0.7 GiB for the compressed genome (file ~ 2.4 GiB) and similar amounts of memory in run time, irrespective of the number of threads. This is for 24-bit keys.
 The common process starts by creating an index file (*.ogi), then mapping short reads (in pairs or not) to generate .sam files.
 
 ogmapper is written in c++. I provide binaries for selected operating systems and source files for compilation.
@@ -145,15 +145,16 @@ Running ogMapper without any arguments shows:
 
 ## Index Generation for DNA
 For indexing DNA the valid options are:
+
       ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]
         [-m 0/1] [-o <index-file-no-ext>] <genome-fasta.gz>
 
-Encodings (-e option):
-   BitwiseAT1GC0Encoding
-   PlainEncoding
-   GappedBitwiseAT1GC0Encoding
-   SwapBitwiseAT1GC0Encoding
-   HPCEncoding
+The encoding transforms the DNA sequence to a binary key.
+The BitwiseAT1GC0Encoding uses 1 bit per nt, transforming A or T/U to 1 and G or C to 0. Any other letter is treated as A. Case-insensitive. So, -k 24 will use 24 nt to generate keys of 24 bits for a total of 16,777,216 different keys. Increasing k would have an important impact on the index size and memory needed.
+The PlainEncoding uses 2 bits per nt, transforming A to 00, C to 01, G to 10, and T/U to 11. Any other letter is treated as A. So, -k 12 will use 12 nt generating keys of 24 bits. 
+The GappedBitwiseAT1GC0Encoding is similar to BitwiseAT1GC0Encoding but the nt used for indexing are chosen as <left><gap><right>=k where <left> and <right> are estimated by k/3. So, here -k=36 is equivalent in bits to -k=24 in BitwiseAT1GC0Encoding.
+The SwapBitwiseAT1GC0Encoding is similar to BitwiseAT1GC0Encoding but it uses non-continuous nt indexing one nt and skipping one until k is reached.
+The HPCEncoding (homo-polymer compressed) ignore consecutive repetition
 Guiders (-g option):
    StateMachineGuider:<state-file>
    DefaultGuider
