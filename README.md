@@ -32,13 +32,14 @@ Ok
 Ok
 
 # Introduction to Encodings, Guiders, and Keys
-ogMapper introduced some concepts and also used novel explorative functions. ogMapper does not index all possible DNA subsequences. It first sweeps the DNA sequence until a specific sequence pattern is found; this pattern is known as a "guide". Thus, there are two guiders implemented up to now. Once a guide is found, the following DNA sequence of length k (provided by -k argument) is used to build a key, which will be indexed. The key is a binary representation of the DNA sequence, which is provided by an encoding function. There are four encoding functions implemented so far.
+ogMapper introduced some concepts and also used novel explorative functions. ogMapper does not index all possible DNA subsequences. It first sweeps the DNA sequence until a specific sequence pattern is found; this pattern is known as a "guide". Thus, there are two guiders implemented up to now. Once a guide is found, the following DNA sequence of length k (provided by -k argument) is used to build a key, which will be indexed. The key is a binary representation of the DNA sequence, which is provided by an encoding function. There are four encoding functions implemented so far. Once a guide-key is processed, the DNA sweeping continues after the last guide until the whole sequence has been analyzed.
 
 ### Guiders (-g option)
-- StateMachineGuider:&lt;state-file&gt;
-- TupleGuider:&lt;tuple-file&gt;
-            
+- TupleGuider : The tuple guider is a simple map of all possible n-nt combinations specifying which of them will be indexed and which will not. The file format is as follows:
 
+To use the TuppleGuider use the option -g TupleGuider:&lt;tuple-file&gt;.
+  
+- StateMachineGuider:&lt;state-file&gt;
 
 ### Encodings
 The encoding transforms the DNA sequence to a binary key.
