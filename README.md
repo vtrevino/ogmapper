@@ -5,8 +5,17 @@ ogMapper generates a tiny index file and memory operations, typically as a fract
 For example, 1.7 GiB for T2T human genome v2 plus 0.7 GiB for the compressed genome (file ~ 2.4 GiB) and similar amounts of memory in run time, irrespective of the number of threads.
 The common process starts by creating an index file (*.ogi), then mapping short reads (in pairs or not) to generate .sam files.
 
+ogmapper is written in c++. I provide binaries for selected operating systems and source files for compilation.
+
+# Binaries
+- MacOS/Intel
+- MacOS/M
+- Linux/x86
+- Windows :(
+
 # Installation
-- download
+- Download
 
 # Compilation
-ogMapper uses the WFA2 library to perform alignment operations when needed.
+ogMapper uses the WFA2 library to perform alignment operations when needed. I provide the latest version used to compile the above binaries. Users may opt to download the lastest WFA version from https://github.com/smarco/WFA2-lib. You may follow the WFA2 instructions or follow the below steps as a guide. The idea is to build a library file suitable for ogMapper (libwfacpp.a) that is needed for the /lib folder in ogMapper.
+
