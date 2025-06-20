@@ -17,9 +17,10 @@ ogmapper is written in c++. I provide binaries for selected operating systems an
 - Download
 
 # Compilation
-ogMapper uses the WFA2 library to perform alignment operations when needed. I provide the latest version used to compile the above binaries. Users may opt to download the lastest WFA version from https://github.com/smarco/WFA2-lib. You may follow the WFA2 instructions or follow the steps below as a guide. The idea is to build a library file suitable for ogMapper (libwfacpp.a) that is needed in the /lib folder to be able to compile ogMapper.
+If one of the above binaries runs in your system, I recommend using it if they do not cause problems. Still, if you prefer to built it yourself, two components need compilation, the WFA library and ogMapper. Once WFA library has been built, we may proceed to compile ogMapper.
 
-Once WFA library is ok. We may proceed to compile ogMapper.
+## Compiling WFA
+ogMapper uses the WFA2 library to perform alignment operations when needed. I provide the latest version used to compile the above binaries. Users may opt to download the latest WFA version from https://github.com/smarco/WFA2-lib. You may follow the original WFA2 instructions or follow the steps below as a guide. The goal is to build a library file suitable for ogMapper (libwfacpp.a) that needs to be placed in the /lib folder to be able to compile ogMapper.
 
 ### Compiling WFA2 from .zip
 Ok
