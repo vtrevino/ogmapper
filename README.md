@@ -31,6 +31,117 @@ Ok
 Ok
 
 # Running ogMapper
+The typical operations consist of creating an index file and mapping reads.
+
+## ogMapper options
+Running ogMapper without any arguments shows:
+
+      ogMapper version v0.5.0-20-Jan-2025
+      Reported Memory=17179869184, argc=1
+      Usage: Indexing, Mapping, and Counting sequencing reads in genomes.
+      
+      INDEXING:
+      
+          ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]
+              [-m 0/1] [-gtf <file>] [-ogx <ogx-prefix-file-name>]
+              [-o <index-file-no-ext>] <genome-fasta.gz>
+      
+              Prepare files for mapping (step 1) or counting (step 2).
+                 Encodings (-e option):
+                     BitwiseAT1GC0Encoding
+                     PlainEncoding
+                     GappedBitwiseAT1GC0Encoding
+                     SwapBitwiseAT1GC0Encoding
+                     HPCEncoding
+                 Guiders (-g option):
+                     StateMachineGuider:<state-file>
+                     DefaultGuider
+                     TupleGuider:<tuple-file>
+                 GTF/Counting (-gtx option used after index-GTF):
+                     Enables index for pseudo-counting mode.
+                     File name used to generate index-GTF.
+                     Must be provided for counting.
+      
+          ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>
+      
+               Prepare files for pseudo-counting (step 1).
+               Output:
+               - <genome>-GTF.fq.gz file.
+               - <gtf>.genes.ogx file.
+               - <gtf>.exons.ogx file.
+               - <gtf>.transcripts.ogx file.
+      
+      MAPPING:
+      
+           ogmapper map [-k <keysize>] [-s <sched>] [-q <nQueue>] [-UC <0/1>]
+               [-t <nThreads>] [-p <0/1>] -i <index-file> [-d <n>]
+               [-maxreadlen <length>] [-maxreads <n>] [-startread <n>]
+               [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]
+               [-1 <reads.gz>] [-2 <read-1.gz> <read-2.gz>]
+      
+               Perform read mapping (step 2).
+               NEEDS an index generated with ogmapper index (step 1).
+      
+      COUNTING:
+      
+           ogmapper count [-k <keysize>] [-s <sched>] [-q <nQueue>] [-UC <0/1>]
+               [-t <nThreads>] [-p <0/1>] -i <complete-index-file> [-d <n>]
+               [-maxreadlen <length>] [-maxreads <n>] [-startread <n>]
+               [-genes <outfile>] [-exons <outfile>] [-transcripts <outfile>]
+               [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]
+               [-1 <ogx> <reads.gz>] [-2 <ogx> <read-1.gz> <read-2.gz>]
+      
+               Perform read pseudo-counting (step 3).
+               NEEDS a indexes generated with ogmapper index-GTF (step 1).
+               Also NEEDS an index generated with ogmapper index with -gtf option (step 2).
+      
+      OPTIONS:
+              -o      Output file. Should appear before -1/-2 parameter.
+                      File may end with .gz but is quite slower.
+              -k      Key size, in nt depending on the encoding.
+              -m      Enables low memory access (-m 1) to save memory when indexing.
+      Default 0.
+                      Default to 0.
+              -s      'schedule' functions to call for read mappings.
+              -UC     Force uppercase reads.
+              -kd     Specifies key distance.
+              -q      Queue size for reads. Default 10000. Removal 0. Recommended >= 1000.
+              -t      Threads used for processing.
+              -f      Generate one output file per thread.
+              -p      'Production' mode -p 1 (faster, default). Production mode 0
+                      designed to test scheduled mapping functions and times.
+              -kseq n Use of the kseq.h library  (n=1, default) or customized (n=0) for
+                      reading reads. The customized reader can be faster in some systems.
+              -gtf    Specify file for regions 'pseudo'-counting.
+              -genes  Output file for gene counting.
+              -exons  Output file for exon counting.
+              -transcripts Output file for transcript counting.
+              -keycount Sets minimum key counts.
+              -scorecount Sets minimum score counts.
+              -tie1   Sets tie 1 parameter.
+              -prepare Do not prepare nor process reads. Used for checking reading times.
+              -process Do not process reads. Used for checking reading and preparing times.
+              -d <n>   Delete key positions more frequent than <n>. This helps to avoid
+                       wasting time searching over large populated keys.
+              -unmapped Activate unmapping mode in which unmapped reads are stored in
+                       corresponding files adding '.unmap' in RAW/TEXT/PLAIN format.
+                       These reads will not be included in the .sam output.
+                       This helps to use a second tool for unmapped reads.
+                       The mode '-unmapped 1' specify that consider pair unmapped if any read
+                       is unmapped, and both reads are not included in sam output.
+                       The mode '-unmapped 2' needs both reads unmapped, otherwise both reads
+                       will be included in sam output.
+                       The mode '-unmapped 3' is similar to 1 but not generating .unmap file.
+                       The mode '-unmapped 4' is similar to 2 but not generating .unmap files.
+              -maxreads Maximum number of reads to be processed.
+              -startread Starting read to be processed.
+              -maxreadlen Read length used to estimate initial memory allocations.
+              -R       Read group header to add in sam output. Within this, the ID:<id>
+                       will be used in every read. Example: ’@RG	ID:foo	SM:bar	PL:ILLUMINA’.
+                       This will add the above as header and the tag 'RG:Z:foo' to every read.
+                       In the case that ID is numeric, 'RG:i:0' will be added instead.
+              -bs <n>  Sets buffer size sam output file.
+
 
 ## Index Generation for DNA
 Ok
