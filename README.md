@@ -9,8 +9,8 @@ ogmapper is written in c++. I provide binaries for selected operating systems an
 
 # Binaries
 - MacOS/Intel : <a href="ogmapper-mac-intel-clang">ogmapper-mac-intel-clang</a> or <a href="ogmapper-mac-intel-gnu">ogmapper-mac-intel-gnu</a>
-- MacOS/M : <a href="https://github.com/vtrevino/ogmapper/blob/main/ogmapper-mac-m-clang">ogmapper-mac-m-clang</a>
-- Linux/x86
+- MacOS/M : <a href="ogmapper-mac-m-clang">ogmapper-mac-m-clang</a>
+- Linux/x86 : <a href="ogmapper-linux-x86">ogmapper-linux-x86</a>
 - Windows :(
 
 # Installation
