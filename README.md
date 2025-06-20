@@ -21,7 +21,7 @@ ogMapper uses the WFA2 library to perform alignment operations when needed. I pr
 
 Once WFA library is ok. We may proceed to compile ogMapper.
 
-## Compiling WFA2 from .zip
+### Compiling WFA2 from .zip
 Ok
 ## Compiling WFA2 from https://github.com/smarco/WFA2-lib
 Ok
