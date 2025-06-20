@@ -23,17 +23,17 @@ Once WFA library is ok. We may proceed to compile ogMapper.
 
 ### Compiling WFA2 from .zip
 Ok
-## Compiling WFA2 from https://github.com/smarco/WFA2-lib
+### Compiling WFA2 from https://github.com/smarco/WFA2-lib
 Ok
-## Compiling ogMapper in MacOS
+### Compiling ogMapper in MacOS
 Ok
-## Compiling ogMapper in Linux
+### Compiling ogMapper in Linux
 Ok
 
 # Running ogMapper
 The typical operations consist of creating an index file and mapping reads.
 
-## ogMapper options
+### ogMapper options
 Running ogMapper without any arguments shows:
 
       ogMapper version v0.5.0-20-Jan-2025
@@ -144,7 +144,24 @@ Running ogMapper without any arguments shows:
 
 
 ## Index Generation for DNA
-Ok
+For indexing DNA the valid options are:
+      ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]
+        [-m 0/1] [-o <index-file-no-ext>] <genome-fasta.gz>
+
+Encodings (-e option):
+   BitwiseAT1GC0Encoding
+   PlainEncoding
+   GappedBitwiseAT1GC0Encoding
+   SwapBitwiseAT1GC0Encoding
+   HPCEncoding
+Guiders (-g option):
+   StateMachineGuider:<state-file>
+   DefaultGuider
+   TupleGuider:<tuple-file>
+            
+
+The typical run
+
 ## Mapping short DNA reads
 Ok
 ## Index Generation for RNA
