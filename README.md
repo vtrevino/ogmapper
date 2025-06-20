@@ -152,7 +152,7 @@ For indexing DNA the valid options are:
 The encoding transforms the DNA sequence to a binary key.
 The BitwiseAT1GC0Encoding uses 1 bit per nt, transforming A or T/U to 1 and G or C to 0. Any other letter is treated as A. Case-insensitive. So, -k 24 will use 24 nt to generate keys of 24 bits for a total of 16,777,216 different keys. Increasing k would have an important impact on the index size and memory needed.
 The PlainEncoding uses 2 bits per nt, transforming A to 00, C to 01, G to 10, and T/U to 11. Any other letter is treated as A. So, -k 12 will use 12 nt generating keys of 24 bits. 
-The GappedBitwiseAT1GC0Encoding is similar to BitwiseAT1GC0Encoding but the nt used for indexing are chosen as <left><gap><right>=k where <left> and <right> are estimated by k/3. So, here -k=36 is equivalent in bits to -k=24 in BitwiseAT1GC0Encoding.
+The GappedBitwiseAT1GC0Encoding is similar to BitwiseAT1GC0Encoding but the nt used for indexing are chosen as [left][gap][right]=k where [left] and [right] are estimated by k/3. So, here -k=36 is equivalent in bits to -k=24 in BitwiseAT1GC0Encoding.
 The SwapBitwiseAT1GC0Encoding is similar to BitwiseAT1GC0Encoding but it uses non-continuous nt indexing one nt and skipping one until k is reached.
 The HPCEncoding (homo-polymer compressed) ignore consecutive repetition
 Guiders (-g option):
