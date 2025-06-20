@@ -8,7 +8,7 @@ The common process starts by creating an index file (*.ogi), then mapping short 
 ogmapper is written in c++. I provide binaries for selected operating systems and source files for compilation.
 
 # Binaries
-- MacOS/Intel
+- MacOS/Intel : <a href="ogmapper-mac-intel-clang">ogmapper-mac-intel-clang</a> or <a href="ogmapper-mac-intel-gnu">ogmapper-mac-intel-gnu</a>
 - MacOS/M : <a href="https://github.com/vtrevino/ogmapper/blob/main/ogmapper-mac-m-clang">ogmapper-mac-m-clang</a>
 - Linux/x86
 - Windows :(
