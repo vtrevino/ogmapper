@@ -23,7 +23,14 @@ If one of the above binaries runs in your system, I recommend using it if they d
 ogMapper uses the WFA2 library to perform alignment operations when needed. I provide the latest version used to build the binaries shown above. Users may opt to download the latest WFA version from https://github.com/smarco/WFA2-lib. You may follow the original WFA2 instructions or follow the steps below as a guide. The goal is to build a library file suitable for ogMapper (libwfacpp.a) that needs to be placed in the /lib folder to be able to compile ogMapper.
 
 ### Compiling WFA2 from .zip
-Ok
+- MacOSX : Assuming Xcode command line tools are already installed, just unzip the <a href="WFA2-lib-main.zip">WFA2-lib-main.zip</a> and then
+
+unzip WFA2-lib-main.zip
+make clean
+make build
+
+- Linux : 
+
 ### Compiling WFA2 from https://github.com/smarco/WFA2-lib
 Ok
 ### Compiling ogMapper in MacOS
