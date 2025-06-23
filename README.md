@@ -25,9 +25,9 @@ ogMapper uses the WFA2 library to perform alignment operations when needed. I pr
 ### Compiling WFA2 from .zip
 - MacOSX : Assuming Xcode command line tools are already installed, just unzip the <a href="WFA2-lib-main.zip">WFA2-lib-main.zip</a> and then
 
-    unzip WFA2-lib-main.zip
-    make clean
-    make build
+        unzip WFA2-lib-main.zip
+        make clean
+        make build
 
 - Linux : 
 
