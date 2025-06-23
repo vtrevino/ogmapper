@@ -30,6 +30,7 @@ ogMapper uses the WFA2 library to perform alignment operations when needed. I pr
         make clean
         make build
         # This should generate libwfacpp.a in the lib/ folder
+        # Copy libwfacpp.a into ogMapper folder under lib/ 
 
 
 - Linux : 
