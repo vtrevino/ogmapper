@@ -14,10 +14,10 @@ ogmapper is written in c++. I provide binaries for selected operating systems an
 - Windows :(
 
 # Installation
-Download the binary and test it without any arguments. If it works, it should display the options as shown in the section [Running ogMapper] below.
+Download the binary and test it without any arguments. If it works, it should display the options as shown in the section [Running ogMapper] below. If you want to build from source, be my guest and follow the next sections.
 
 # Compilation
-If one of the above binaries runs in your system, I recommend using it if they do not cause problems. Still, if you prefer to built it yourself, two components need compilation, the WFA library and ogMapper. Once WFA library has been built, we may proceed to compile ogMapper.
+If one of the above binaries runs in your system, I recommend using it if they do not cause problems. Still, if you prefer to build it yourself, two components need compilation, the WFA library and ogMapper. Once WFA library has been built, we may proceed to compile ogMapper.
 
 ## Compiling WFA
 ogMapper uses the WFA2 library to perform alignment operations when needed. I provide the latest version used to build the binaries shown above. Users may opt to download the latest WFA version from https://github.com/smarco/WFA2-lib. You may follow the original WFA2 instructions or follow the steps below as a guide. The goal is to build a library file suitable for ogMapper (libwfacpp.a) that needs to be placed in the /lib folder to be able to compile ogMapper.
@@ -51,9 +51,12 @@ tools/align_benchmark/Makefile
 ### Compiling WFA2 from https://github.com/smarco/WFA2-lib
 Follow the instructions provided in WFA2-lib.
 
-### Compiling ogMapper in MacOS
-Ok
-### Compiling ogMapper in Linux
+## Compiling ogMapper
+
+### Compiling ogMapper on MacOS
+
+
+### Compiling ogMapper on Linux
 Ok
 
 # Introduction to Encodings, Guiders, and Keys
@@ -67,7 +70,7 @@ To use the TuppleGuider use the option -g TupleGuider:&lt;tuple-file&gt;.
 - StateMachineGuider:&lt;state-file&gt;
 
 ### Encodings
-The encoding transforms the DNA sequence to a binary key.
+The encoding transforms the DNA sequence to a binary key. I recommend BitWise and Plain.
 
 The **BitwiseAT1GC0Encoding** uses 1 bit per nt, transforming A or T/U to 1 and G or C to 0. Any other letter is treated as A. Case-insensitive. So, -k 24 will use 24 nt to generate keys of 24 bits for a total of 16,777,216 different keys. Increasing k would have an important impact on the index size and memory needed.
 
@@ -75,9 +78,9 @@ The **PlainEncoding** uses 2 bits per nt, transforming A to 00, C to 01, G to 10
 
 The **GappedBitwiseAT1GC0Encoding** is similar to BitwiseAT1GC0Encoding but the nt used for indexing are chosen as [left][gap][right]=k where [left] and [right] are estimated by k/3. So, here -k=36 is equivalent in bits to -k=24 in BitwiseAT1GC0Encoding.
 
-The **SwapBitwiseAT1GC0Encoding** is similar to BitwiseAT1GC0Encoding but it uses non-continuous nt indexing one nt and skipping one until k is reached.
+The **SwapBitwiseAT1GC0Encoding** is similar to BitwiseAT1GC0Encoding but it uses non-continuous nt indexing, one nt and skipping one until k is reached.
 
-The **HPCEncoding** (homo-polymer compressed) ignore consecutive repetition
+The **HPCEncoding** (homo-polymer compressed) ignores consecutive repetitions of a nucleotide and then uses 'plain' encoding as the **PlainEncoding** above.
 
 
 # Running ogMapper
