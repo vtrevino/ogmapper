@@ -49,7 +49,8 @@ tools/align_benchmark/Makefile
 
 
 ### Compiling WFA2 from https://github.com/smarco/WFA2-lib
-Ok
+Follow the instructions provided in WFA2-lib.
+
 ### Compiling ogMapper in MacOS
 Ok
 ### Compiling ogMapper in Linux
