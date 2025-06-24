@@ -27,29 +27,37 @@ ogMapper uses the WFA2 library to perform alignment operations when needed. I pr
 
         # Install llvm and libomp
         brew install llvm libomp
+  
         # Make WFA2
         unzip WFA2-lib-main.zip
         cd WFA2-lib-main
         make clean
         make build
         # This should generate libwfacpp.a in the lib/ folder
-        cp lib/libwfacpp.a [your ogMapper/lib]
+  
         # Copy libwfacpp.a into ogMapper folder under lib/ 
-If you have problems with "VERSION" at compile time
+        cp lib/libwfacpp.a [your ogMapper/lib]
+  
+If you have problems with "VERSION" at compile time, rename it to "__VERSION".
+If you have problems with LIBOMP you may need one of the compile flags: "-lomp", "-fopenmp", "-openmp", or "-gomp", depending on the library installed.
 
 - Linux: Assuming c/c++ compilers are installed, download <a href="WFA2-lib-main.zip">WFA2-lib-main.zip</a> and then 
 tools/align_benchmark/Makefile
 
+        # 
         unzip WFA2-lib-main.zip
         cd WFA2-lib-main
         make clean
+  
         # Edit all Makefiles replacing -lomp flag to -fopenmp (Makefile,  wavefront/Makefile, tools/align_benchmark/Makefile, examples/Makefile)
         # Files : Makefile,  wavefront/Makefile, tools/align_benchmark/Makefile, examples/Makefile
+        # This "make" should generate libwfacpp.a in the lib/ folder
         make build
-        # This should generate libwfacpp.a in the lib/ folder
         cp lib/libwfacpp.a [your ogMapper/lib]
         # Copy libwfacpp.a into ogMapper folder under lib/ 
 
+If you have problems with "VERSION" at compile time, rename it to "__VERSION".
+If you have problems with LIBOMP you may need one of the compile flags: "-lomp", "-fopenmp", "-openmp", or "-gomp", depending on the library installed.
 
 
 ### Compiling WFA2 from https://github.com/smarco/WFA2-lib
