@@ -75,7 +75,7 @@ Ok
 ogMapper introduced some concepts and also used novel explorative functions. ogMapper does not index all possible DNA subsequences. It first sweeps the DNA sequence until a specific sequence pattern is found; this pattern is known as a "guide". Thus, there are two guiders implemented up to now. Once a guide is found, the following DNA sequence of length k (provided by -k argument) is used to build a key, which will be indexed. The key is a binary representation of the DNA sequence, which is provided by an encoding function. There are four encoding functions implemented so far. Once a guide-key is processed, the DNA sweeping continues after the last guide until the whole sequence has been analyzed.
 
 ### Guiders (-g option)
-- TupleGuider : The tuple guider is a simple map of all possible n-nt combinations specifying which of them will be indexed and which will not. ogMapper includes a folder of pre-configured Guider files (guiders/ folder). The file format needs first 4 lines for parameters then the needed lines for tuples.
+- TupleGuider: The tuple guider is a simple map of all possible n-nt combinations specifying which of them will be indexed and which will not. ogMapper includes a folder of pre-configured Guider files (guiders/ folder). The file format needs first 4 lines for parameters then the needed lines for tuples.
 
         # Next lines start with "small extension name", maxLenNoPattern, isSymmetric, GuideLen
         XYXt
@@ -94,8 +94,12 @@ ogMapper introduced some concepts and also used novel explorative functions. ogM
         
 
 To use the TuppleGuider use the option -g TupleGuider:&lt;tuple-file&gt;.
+
+I recommend using tuple guiders since they are easier to understand and maintain.
   
-- StateMachineGuider:&lt;state-file&gt;
+- StateMachineGuider: State machine guiders are used when not simple mappings can be specified using Tuples. For instance, if you want a variable-length guiders, it cannot be done with Tuples.
+  
+StateMachineGuider:&lt;state-file&gt;
 
 ### Encodings
 The encoding transforms the DNA sequence to a binary key. I recommend BitWise and Plain.
