@@ -1,0 +1,37 @@
+#State transitions for detecting sequences of 2 repetitions separated by any nt (A?A, C?C, G?G, T?T) and start in the next NT							
+#State -1 means a correct finding a uses the current position to start							
+#State -22 means a failing pattern. Will restart the search by increasing 1 position relative to the start state.							
+# Hash # mark optional Comments, as many lines as needed
+# Then key start in the next NT
+# FILE CONTENT FORMAT:
+# # ...
+# Extension: 4 letters (not used as only 1 file is now in index)
+# MAX_LEN_NO_PATTERN : integer (supposed to be short, around 24)
+# isSymmetric : 0=no, 1=yes
+# guideLen : size of the guide in nucleotides, integer. All guideLen-combinations are expected
+# # Optional Comments, as many lines as needed
+# # ...
+# State	A	C	G	T	N	X	Comment
+#
+# State : number
+# A : Transition state when finding an A
+# C,G,T : Equivalent to A
+# N : when literally finding an N
+# X : when finding any other letter
+# Comment : comment
+# Next lines start with extension, maxlennopatrn, issym, guidelen
+XyXs
+24
+1
+3
+#St	A	C	G	T	N	X	Comment
+0	10	20	30	40	0	0	A,C,G,T ?
+1	-1	-1	-1	-1	-1	-1	Set the position, and finish
+10	11	11	11	11	0	0	A->An
+11	1	-22	-22	-22	0	0	An->AnA
+20	21	21	21	21	0	0	C->Cn
+21	-22	1	-22	-22	0	0	Cn->CnC
+30	31	31	31	31	0	0	G->Gn
+31	-22	-22	1	-22	0	0	Gn->GnG
+40	41	41	41	41	0	0	T->Tn
+41	-22	-22	-22	1	0	0	Tn->TnT

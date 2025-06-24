@@ -1,0 +1,59 @@
+# Hash # mark optional Comments, as many lines as needed
+# State transitions for detecting palindrome sequences 
+# Then key start in the next NT
+# FILE CONTENT FORMAT:
+# # ...
+# Extension: 4 letters (not used as only 1 file is now in index)
+# MAX_LEN_NO_PATTERN : integer (supposed to be short, around 24)
+# isSymmetric : 0=no, 1=yes
+# guideLen : size of the guide in nucleotides, integer. All guideLen-combinations are expected
+# # Optional Comments, as many lines as needed
+# # ...
+# State	A	C	G	T	N	X	Comment
+#
+# State : number
+# A : Transition state when finding an A
+# C,G,T : Equivalent to A
+# N : when literally finding an N
+# X : when finding any other letter
+# Comment : comment
+# Next lines start with extension, maxlennopatrn, issym, guidelen
+PALs
+24
+1
+3
+#St	A	C	G	T	N	X	Comment
+0	10	50	100	150	0	0	Starting state
+1	-1	-1	-1	-1	-1	-1	Set the position, and finish
+#							
+10	10	20	30	40	0	0	A
+20	-22	21	-22	-22	-22	-22	AC
+21	1	-22	-22	-22	-22	-22	ACC
+30	-22	-22	31	-22	-22	-22	AG
+31	1	-22	-22	-22	-22	-22	AGG
+40	-22	-22	-22	41	-22	-22	AT
+41	1	-22	-22	-22	-22	-22	ATT
+#							
+50	60	50	70	80	0	0	C
+60	61	-22	-22	-22	-22	-22	CA
+61	-22	1	-22	-22	-22	-22	CAA
+70	-22	-22	71	-22	-22	-22	CG
+71	-22	1	-22	-22	-22	-22	CGG
+80	-22	-22	-22	81	-22	-22	CT
+81	-22	1	-22	-22	-22	-22	CTT
+#							
+100	110	120	100	130	0	0	G
+110	111	-22	-22	-22	-22	-22	GA
+111	-22	-22	1	-22	-22	-22	GAA
+120	-22	121	-22	-22	-22	-22	GC
+121	-22	-22	1	-22	-22	-22	GCC
+130	-22	-22	-22	131	-22	-22	GT
+131	-22	-22	1	-22	-22	-22	GTT
+#							
+150	160	170	180	150	0	0	T
+160	161	-22	-22	-22	-22	-22	TA
+161	-22	-22	-22	1	-22	-22	TAA
+170	-22	171	-22	-22	-22	-22	TC
+171	-22	-22	-22	1	-22	-22	TCC
+180	-22	-22	181	-22	-22	-22	TG
+181	-22	-22	-22	1	-22	-22	TGG

@@ -1,0 +1,89 @@
+# FILE CONTENT FORMAT:
+# # Has mark optional Comments, as many lines as needed
+# # ...
+# Extension: 4 letters (not used as only 1 file is now in index)
+# MAX_LEN_NO_PATTERN : integer (supposed to be short, around 24)
+# isSymmetric : 0=no, 1=yes
+# guideLen : size of the guide in nucleotides, integer. All guideLen-combinations are expected
+# # Optional Comments, as many lines as needed
+# # ...
+# tuple isGuider ntadvance comment
+# ...
+# 	tuple = DNA sequence of the exact length <guideLen>
+# 	isGuider = 0 or 1, 1=Guider, 0=no guider. 
+# 	If guider, first advance nt then take key.
+# 	ntadvance = nucleotides to advance in the sequence when observing the tuple.
+# 		    the minimum advance is 1.
+# 	comment is any text until end of line (max 900 chars).
+#
+# Next lines start with extension, maxlennopatrn, issym, guidelen
+XYXt
+24
+1
+3
+# Next lines start tuples and guiders
+#Tuple	isGuider	NT_to_advance	Comment
+AAA	0	1	x
+AAC	0	1	x
+AAG	0	1	x
+AAT	0	1	x
+ACA	1	3	Index
+ACC	0	1	x
+ACG	0	1	x
+ACT	0	1	x
+AGA	1	3	Index
+AGC	0	1	x
+AGG	0	1	x
+AGT	0	1	x
+ATA	1	3	Index
+ATC	0	1	x
+ATG	0	1	x
+ATT	0	1	x
+CAA	0	1	x
+CAC	1	3	Index
+CAG	0	1	x
+CAT	0	1	x
+CCA	0	1	x
+CCC	0	1	x
+CCG	0	1	x
+CCT	0	1	x
+CGA	0	1	x
+CGC	1	3	Index
+CGG	0	1	x
+CGT	0	1	x
+CTA	0	1	x
+CTC	1	3	Index
+CTG	0	1	x
+CTT	0	1	x
+GAA	0	1	x
+GAC	0	1	x
+GAG	1	3	Index
+GAT	0	1	x
+GCA	0	1	x
+GCC	0	1	x
+GCG	1	3	Index
+GCT	0	1	x
+GGA	0	1	x
+GGC	0	1	x
+GGG	0	1	x
+GGT	0	1	x
+GTA	0	1	x
+GTC	0	1	x
+GTG	1	3	Index
+GTT	0	1	x
+TAA	0	1	x
+TAC	0	1	x
+TAG	0	1	x
+TAT	1	3	Index
+TCA	0	1	x
+TCC	0	1	x
+TCG	0	1	x
+TCT	1	3	Index
+TGA	0	1	x
+TGC	0	1	x
+TGG	0	1	x
+TGT	1	3	Index
+TTA	0	1	x
+TTC	0	1	x
+TTG	0	1	x
+TTT	0	1	x

@@ -1,0 +1,43 @@
+# Hash # mark optional Comments, as many lines as needed
+# State transitions for detecting sequences of any repetitions from 3: XXX+
+# Then key start in the next NT
+# FILE CONTENT FORMAT:
+# # ...
+# Extension: 4 letters (not used as only 1 file is now in index)
+# MAX_LEN_NO_PATTERN : integer (supposed to be short, around 24)
+# isSymmetric : 0=no, 1=yes
+# guideLen : size of the guide in nucleotides, integer. All guideLen-combinations are expected
+# # Optional Comments, as many lines as needed
+# # ...
+# State	A	C	G	T	N	X	Comment
+#
+# State : number
+# A : Transition state when finding an A
+# C,G,T : Equivalent to A
+# N : when literally finding an N
+# X : when finding any other letter
+# Comment : comment
+# Next lines start with extension, maxlennopatrn, issym, guidelen
+XXXp
+24
+1
+3
+# Next lines start tuples and guiders
+#St	A	C	G	T	N	X	Comment
+0	10	20	30	40	-22	-22	Starting state
+#							
+10	11	-22	-22	-22	-22	-22	A
+11	12	-22	-22	-22	-22	-22	AA
+12	12	-1	-1	-1	-22	-22	AAA..
+#							
+20	-22	21	-22	-22	-22	-22	C
+21	-22	22	-22	-22	-22	-22	CC
+22	-1	22	-1	-1	-22	-22	CCC..
+#							
+30	-22	-22	31	-22	-22	-22	G
+31	-22	-22	32	-22	-22	-22	GG
+32	-1	-1	32	-1	-22	-22	GGG..
+#							
+40	-22	-22	-22	41	-22	-22	T
+41	-22	-22	-22	42	-22	-22	TT
+42	-1	-1	-1	42	-22	-22	TTT..

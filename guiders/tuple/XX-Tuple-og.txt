@@ -1,0 +1,41 @@
+# FILE CONTENT FORMAT:
+# # Has mark optional Comments, as many lines as needed
+# # ...
+# Extension: 4 letters (not used as only 1 file is now in index)
+# MAX_LEN_NO_PATTERN : integer (supposed to be short, around 24)
+# isSymmetric : 0=no, 1=yes
+# guideLen : size of the guide in nucleotides, integer. All guideLen-combinations are expected
+# # Optional Comments, as many lines as needed
+# # ...
+# tuple isGuider ntadvance comment
+# ...
+# 	tuple = DNA sequence of the exact length <guideLen>
+# 	isGuider = 0 or 1, 1=Guider, 0=no guider. 
+# 	If guider, first advance nt then take key.
+# 	ntadvance = nucleotides to advance in the sequence when observing the tuple.
+# 		    the minimum advance is 1.
+# 	comment is any text until end of line (max 900 chars).
+#
+# Next lines start with extension, maxlennopatrn, issym, guidelen
+XXt
+24
+1
+2
+# Next lines start tuples and guiders
+#Tuple	isGuider	NT_to_advance	Comment
+AA	1	2	Index
+AC	0	1	x
+AG	0	1	x
+AT	0	1	x
+CA	0	1	x
+CC	1	2	Index
+CG	0	1	x
+CT	0	1	x
+GA	0	1	x
+GC	0	1	x
+GG	1	2	Index
+GT	0	1	x
+TA	0	1	x
+TC	0	1	x
+TG	0	1	x
+TT	1	2	Index

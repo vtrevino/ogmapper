@@ -1,0 +1,5 @@
+* renombre VERSION a __VERSION para evitar problemas de compilación viendo https://github.com/marian-nmt/marian-dev/issues/871 ... solo de la carpeta que se descomprime
+* brew install llvm libomp
+* followed https://mac.r-project.org/openmp/
+* cambie option '-fopenmp' por -openmp en 3 archivos Makefile de subcarpetas segun https://github.com/microsoft/LightGBM/issues/3
+* cambie -openmp por -lomp (osea -fopenmp por -lomp)
