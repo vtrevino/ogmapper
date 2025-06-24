@@ -216,11 +216,14 @@ For indexing DNA the valid options are:
       ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]
         [-m 0/1] [-o <index-file-no-ext>] <genome-fasta.gz>
 
+The guiders/ folder contains the state/ and tuple/ folders, which include pre-configured guiders files. Copy the file needed before running the indexing command, for example the XXX-Tuple-og.txt file used below.
+
 The typical run:
 
     ogmapper index -k 24 -g TupleGuider:XXX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XXX-BW chm13v2.0.fa.gz 
 
 <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publish <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI.
+
 
 ## Mapping short DNA reads
 Ok
