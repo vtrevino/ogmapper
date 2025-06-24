@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+            <option name="debug_command"
+                    value="&quot;${OUTPUT_PATH}&quot;  map -kseq 0 -q 10000 -t 0 -i chm13v2.ogi -o 08IL2U-ogm-k0.sam -unmapped -2 08IL2U_S6_L001_R1_001.fastq.gz 08IL2U_S6_L001_R2_001.fastq.gz"/>
+            <option name="debug_dir" value="/Users/victortrevino/Downloads/"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" map -k 24 -startread 4458 -maxreads 4459 -s A -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 10000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -k 24 -startread 199362 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" map -k 24 -maxreads 100000 -s 14lxX  -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 10000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" map -k 24 -maxreads 10000 -s sS14lxX  -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 10000 -p 0 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -maxreads 216 -2 sratoolkit.3.0.2-mac64/SRR7733443_1.fastq.gz sratoolkit.3.0.2-mac64/SRR7733443_2.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" map -s lLsS14xX  -t 0 -q 10000 -p 1 -g hg38-og_gTplXnX1_eBWat1gc0-24 -2 problematicR1.fastq.gz problematicR2.fastq.gz -o stdout.sam </runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" map -s lLsS14xX  -t 0 -q 10000 -p 1 -g hg38-og_gTplXnX1_eBWat1gc0-24 -2 problematicR1.fastq.gz problematicR2.fastq.gz -o stdout.sam</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" map -s lLsS14xX  -t 0 -q 10000 -p 1 -g hg38-og_gTplXnX1_eBWat1gc0-24 -o samout2-cigars.sam -2 SETD_L1_R1.fastq.gz SETD_L1_R2.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" count -i chm13v2.ogi -genes gene-count.txt -exons exon-count.txt -transcripts transcripts-count.txt -s 789 -2 chm13v2 ARDB_S42_L002_R1_001.fastq.gz ARDB_S42_L002_R2_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -kseq 0 -q 10000 -t 0 -i chm13v2.ogi -o 08IL2U-ogm-k0.sam -unmapped -2 08IL2U_S6_L001_R1_001.fastq.gz 08IL2U_S6_L001_R2_001.fastq.gz</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"  map -kseq 0 -q 10000 -t 0 -i chm13v2.ogi -o 08IL2U-ogm-k0.sam -unmapped -2 08IL2U_S6_L001_R1_001.fastq.gz 08IL2U_S6_L001_R2_001.fastq.gz</runcommand>
+        <rundir>/Users/victortrevino/Downloads</rundir>
+        <buildfirst>true</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+            <option name="debug_command"
+                    value="${OUTPUT_PATH} map -k 24 -maxreads 10 -s x14l -q 10000 -t 0 -p 0 -maxreadlen 100000 -i hsGRCh38.ogi -o out.sam -1 SRR21038802.fastq.gz"/>
+            <option name="debug_dir" value="/Users/victortrevino/Downloads"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>${OUTPUT_PATH} map -k 12 -maxreads 1000000 -s s -t 0 -q 1000 chm13v2.0_gSMXnX1_ePlain-12 CNV-M7_S79_L006_R1_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommand>
+        <rundir>/Users/victortrevino/Downloads</rundir>
+        <buildfirst>true</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Release_Intel_CLANG" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+            <option name="debug_command"
+                    value="${OUTPUT_PATH} map -k 24 -maxreads 10 -s x14l -q 10000 -t 0 -p 0 -maxreadlen 100000 -i hsGRCh38.ogi -o out.sam -1 SRR21038802.fastq.gz"/>
+            <option name="debug_dir" value="/Users/victortrevino/Downloads"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>${OUTPUT_PATH} map -k 12 -maxreads 1000000 -s s -t 0 -q 1000 chm13v2.0_gSMXnX1_ePlain-12 CNV-M7_S79_L006_R1_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommand>
+        <rundir>/Users/victortrevino/Downloads</rundir>
+        <buildfirst>true</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Release_M_CLANG" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+            <option name="debug_command"
+                    value="${OUTPUT_PATH} map -k 24 -maxreads 10 -s x14l -q 10000 -t 0 -p 0 -maxreadlen 100000 -i hsGRCh38.ogi -o out.sam -1 SRR21038802.fastq.gz"/>
+            <option name="debug_dir" value="/Users/victortrevino/Downloads"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>${OUTPUT_PATH} map -k 12 -maxreads 1000000 -s s -t 0 -q 1000 chm13v2.0_gSMXnX1_ePlain-12 CNV-M7_S79_L006_R1_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommand>
+        <rundir>/Users/victortrevino/Downloads</rundir>
+        <buildfirst>true</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Release_Win_CLANG" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+            <option name="debug_command"
+                    value="${OUTPUT_PATH} map -k 24 -maxreads 10 -s x14l -q 10000 -t 0 -p 0 -maxreadlen 100000 -i hsGRCh38.ogi -o out.sam -1 SRR21038802.fastq.gz"/>
+            <option name="debug_dir" value="/Users/victortrevino/Downloads"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>${OUTPUT_PATH} map -k 12 -maxreads 1000000 -s s -t 0 -q 1000 chm13v2.0_gSMXnX1_ePlain-12 CNV-M7_S79_L006_R1_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommand>
+        <rundir>/Users/victortrevino/Downloads</rundir>
+        <buildfirst>true</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Release_Native_GNU" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+            <option name="debug_command"
+                    value="${OUTPUT_PATH} map -k 24 -maxreads 10 -s x14l -q 10000 -t 0 -p 0 -maxreadlen 100000 -i hsGRCh38.ogi -o out.sam -1 SRR21038802.fastq.gz"/>
+            <option name="debug_dir" value="/Users/victortrevino/Downloads"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>${OUTPUT_PATH} map -k 12 -maxreads 1000000 -s s -t 0 -q 1000 chm13v2.0_gSMXnX1_ePlain-12 CNV-M7_S79_L006_R1_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommand>
+        <rundir>/Users/victortrevino/Downloads</rundir>
+        <buildfirst>true</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Release_Linux_CLANG" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+            <option name="debug_command"
+                    value="${OUTPUT_PATH} map -k 24 -maxreads 10 -s x14l -q 10000 -t 0 -p 0 -maxreadlen 100000 -i hsGRCh38.ogi -o out.sam -1 SRR21038802.fastq.gz"/>
+            <option name="debug_dir" value="/Users/victortrevino/Downloads"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>${OUTPUT_PATH} map -k 12 -maxreads 1000000 -s s -t 0 -q 1000 chm13v2.0_gSMXnX1_ePlain-12 CNV-M7_S79_L006_R1_001.fastq.gz</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"  map -k 24 -maxreads 100000 -s lsxXa -x ssSZslLYdDEhHJnNaimMwWP -t 0 -q 100000 -p 1 -g chm13v2.0_gTplXnX1_eBWat1gc0-24 -2 CNV-M7_S79_L006_R1_001.fastq.gz CNV-M7_S79_L006_R2_001.fastq.gz</runcommand>
+        <rundir>/Users/victortrevino/Downloads</rundir>
+        <buildfirst>true</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>

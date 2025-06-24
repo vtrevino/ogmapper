@@ -1,0 +1,1200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>BGZF.h</itemPath>
+      <itemPath>CircularArray.hpp</itemPath>
+      <itemPath>SimpleStatisticsCalculator.hpp</itemPath>
+      <itemPath>binnedBigCounters.hpp</itemPath>
+      <itemPath>kseq.h</itemPath>
+      <itemPath>ogAligner.hpp</itemPath>
+      <itemPath>ogBitwiseAT1GC0Encoding.hpp</itemPath>
+      <itemPath>ogCandidatePosManager.hpp</itemPath>
+      <itemPath>ogCigarOperations.hpp</itemPath>
+      <itemPath>ogDefinitions.hpp</itemPath>
+      <itemPath>ogFastAQGZreader.hpp</itemPath>
+      <itemPath>ogGappedBitwiseAT1GC0Encoding.hpp</itemPath>
+      <itemPath>ogGenome.hpp</itemPath>
+      <itemPath>ogGenomePositions.hpp</itemPath>
+      <itemPath>ogGuider.hpp</itemPath>
+      <itemPath>ogHomoPolymerCompressedEnc.hpp</itemPath>
+      <itemPath>ogIndex-original.hpp</itemPath>
+      <itemPath>ogIndex.hpp</itemPath>
+      <itemPath>ogKeyEncoding.hpp</itemPath>
+      <itemPath>ogKeys.hpp</itemPath>
+      <itemPath>ogMappingParameters.hpp</itemPath>
+      <itemPath>ogPlainEncoding.hpp</itemPath>
+      <itemPath>ogReadKeyMapping.hpp</itemPath>
+      <itemPath>ogReadManager.hpp</itemPath>
+      <itemPath>ogReadsMapper.hpp</itemPath>
+      <itemPath>ogReusableBinaryTree.hpp</itemPath>
+      <itemPath>ogSamWriter.hpp</itemPath>
+      <itemPath>ogScheduler.hpp</itemPath>
+      <itemPath>ogSingleRead.hpp</itemPath>
+      <itemPath>ogStateMachineGuider.hpp</itemPath>
+      <itemPath>ogSwapBitwiseAT1GC0Encoding.hpp</itemPath>
+      <itemPath>ogTupleGuider.hpp</itemPath>
+      <itemPath>sequenceRead.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>BGZF.cpp</itemPath>
+      <itemPath>CircularArray.cpp</itemPath>
+      <itemPath>SimpleStatisticsCalculator.cpp</itemPath>
+      <itemPath>binnedBigCounters.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+      <itemPath>ogAligner.cpp</itemPath>
+      <itemPath>ogBitwiseAT1GC0Encoding.cpp</itemPath>
+      <itemPath>ogCandidatePosManager.cpp</itemPath>
+      <itemPath>ogCigarOperations.cpp</itemPath>
+      <itemPath>ogCountingFunctions.cpp</itemPath>
+      <itemPath>ogFastAQGZreader.cpp</itemPath>
+      <itemPath>ogGappedBitwiseAT1GC0Encoding.cpp</itemPath>
+      <itemPath>ogGenome.cpp</itemPath>
+      <itemPath>ogGenomePositions.cpp</itemPath>
+      <itemPath>ogGuider.cpp</itemPath>
+      <itemPath>ogHomoPolymerCompressedEnc.cpp</itemPath>
+      <itemPath>ogIndex-original.cpp</itemPath>
+      <itemPath>ogIndex.cpp</itemPath>
+      <itemPath>ogKeyEncoding.cpp</itemPath>
+      <itemPath>ogKeys.cpp</itemPath>
+      <itemPath>ogMappingFunctions.cpp</itemPath>
+      <itemPath>ogPlainEncoding.cpp</itemPath>
+      <itemPath>ogReadKeyMapping.cpp</itemPath>
+      <itemPath>ogReadsMapper.cpp</itemPath>
+      <itemPath>ogReusableBinaryTree.cpp</itemPath>
+      <itemPath>ogSamWriter.cpp</itemPath>
+      <itemPath>ogSingleRead.cpp</itemPath>
+      <itemPath>ogStateMachineGuider.cpp</itemPath>
+      <itemPath>ogSwapBitwiseAT1GC0Encoding.cpp</itemPath>
+      <itemPath>ogTupleGuider.cpp</itemPath>
+      <itemPath>sequenceRead.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>CLang|CLang</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <commandLine>-std=c++11</commandLine>
+        </cTool>
+        <ccTool>
+          <commandlineTool>clang++</commandlineTool>
+          <incDir>
+            <pElem>/usr/local/include</pElem>
+          </incDir>
+          <commandLine>-std=c++11</commandLine>
+        </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>lib/WFA2/MAC-X86/libwfacpp.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-lz -lomp</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="BGZF.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BGZF.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CircularArray.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CircularArray.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kseq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogAligner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogAligner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCountingFunctions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogDefinitions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenome.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogGenome.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex-original.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogIndex-original.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogIndex.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeys.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogKeys.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogMappingFunctions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogMappingParameters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSamWriter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSamWriter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogScheduler.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSingleRead.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSingleRead.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sequenceRead.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="sequenceRead.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>gcc</commandlineTool>
+          <commandLine>-std=c++11</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandLine>-std=c++11</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>lib/WFA2/MAC-X86/libwfacpp.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-lz -lomp</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="BGZF.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BGZF.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CircularArray.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CircularArray.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kseq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogAligner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogAligner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCountingFunctions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogDefinitions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenome.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogGenome.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex-original.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogIndex-original.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogIndex.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeys.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogKeys.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogMappingFunctions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogMappingParameters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSamWriter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSamWriter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogScheduler.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSingleRead.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSingleRead.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sequenceRead.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="sequenceRead.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release_Intel_CLANG" type="1">
+      <toolsSet>
+        <compilerSet>CLang|CLang</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>clang</commandlineTool>
+          <commandLine>-std=c++11 -target x86_64-apple-darwin</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>clang++</commandlineTool>
+          <commandLine>-std=c++11 -target x86_64-apple-darwin</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>lib/WFA2/MAC-X86/libwfacpp.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-lz -lomp</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="BGZF.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="BGZF.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CircularArray.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="CircularArray.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="SimpleStatisticsCalculator.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="binnedBigCounters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kseq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogAligner.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogAligner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogCandidatePosManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogCigarOperations.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCountingFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogDefinitions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogFastAQGZreader.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenome.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogGenome.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogGenomePositions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex-original.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogIndex-original.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogIndex.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogKeyEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeys.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogKeys.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogMappingFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogMappingParameters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogPlainEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReadKeyMapping.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReadsMapper.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReusableBinaryTree.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSamWriter.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSamWriter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogScheduler.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSingleRead.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSingleRead.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogStateMachineGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogTupleGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sequenceRead.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="sequenceRead.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release_M_CLANG" type="1">
+      <toolsSet>
+        <compilerSet>CLang|CLang</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>clang</commandlineTool>
+          <commandLine>-std=c++11 -target arm64-apple-darwin</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandLine>-std=c++11 -target arm64-apple-darwin</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>lib/WFA2/MAC-M/libwfacpp.a</linkerLibFileItem>
+            <linkerLibFileItem>lib/LIBOMP/MAC-M/libomp.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-lz -lomp</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="BGZF.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="BGZF.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CircularArray.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="CircularArray.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="SimpleStatisticsCalculator.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="binnedBigCounters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kseq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogAligner.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogAligner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogCandidatePosManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogCigarOperations.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCountingFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogDefinitions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogFastAQGZreader.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenome.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogGenome.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogGenomePositions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex-original.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogIndex-original.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogIndex.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogKeyEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeys.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogKeys.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogMappingFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogMappingParameters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogPlainEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReadKeyMapping.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReadsMapper.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReusableBinaryTree.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSamWriter.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSamWriter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogScheduler.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSingleRead.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSingleRead.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogStateMachineGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogTupleGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sequenceRead.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="sequenceRead.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release_Win_CLANG" type="1">
+      <toolsSet>
+        <compilerSet>CLang|CLang</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>clang</commandlineTool>
+          <commandLine>-std=c++11 -target x86_64-pc-windows-msvc</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>clang++</commandlineTool>
+          <commandLine>-std=c++11 -target x86_64-pc-windows-msvc</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>lib/WFA2/MAC-X86/libwfacpp.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-lz -lomp</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="BGZF.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="BGZF.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CircularArray.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="CircularArray.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="SimpleStatisticsCalculator.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="binnedBigCounters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kseq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogAligner.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogAligner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogCandidatePosManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogCigarOperations.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCountingFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogDefinitions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogFastAQGZreader.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenome.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogGenome.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogGenomePositions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex-original.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogIndex-original.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogIndex.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogKeyEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeys.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogKeys.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogMappingFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogMappingParameters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogPlainEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReadKeyMapping.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReadsMapper.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReusableBinaryTree.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSamWriter.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSamWriter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogScheduler.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSingleRead.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSingleRead.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogStateMachineGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogTupleGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sequenceRead.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="sequenceRead.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release_Native_GNU" type="1">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>gcc</commandlineTool>
+          <commandLine>-std=c++11</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandLine>-std=c++11</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>lib/WFA2/MAC-X86/libwfacpp.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-lz -lomp</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="BGZF.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BGZF.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CircularArray.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CircularArray.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kseq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogAligner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogAligner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCountingFunctions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogDefinitions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenome.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogGenome.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex-original.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogIndex-original.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogIndex.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeys.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ogKeys.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogMappingFunctions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogMappingParameters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSamWriter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSamWriter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogScheduler.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSingleRead.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSingleRead.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sequenceRead.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="sequenceRead.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release_Linux_CLANG" type="1">
+      <toolsSet>
+        <compilerSet>CLang|CLang</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>clang</commandlineTool>
+          <commandLine>-std=c++11 -target x86_64-redhat-linux-gnu</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>clang++</commandlineTool>
+          <commandLine>-std=c++11 -target x86_64-redhat-linux-gnu</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>lib/WFA2/LINUX/REDHAT-X86_64/libwfacpp.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-lz -lomp</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="BGZF.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="BGZF.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CircularArray.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="CircularArray.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimpleStatisticsCalculator.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="SimpleStatisticsCalculator.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="binnedBigCounters.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="binnedBigCounters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kseq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogAligner.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogAligner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCandidatePosManager.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogCandidatePosManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCigarOperations.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogCigarOperations.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogCountingFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogDefinitions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogFastAQGZreader.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogFastAQGZreader.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogGappedBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenome.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogGenome.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGenomePositions.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogGenomePositions.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogHomoPolymerCompressedEnc.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex-original.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogIndex-original.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogIndex.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogIndex.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeyEncoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogKeyEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogKeys.cpp" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="ogKeys.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogMappingFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogMappingParameters.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogPlainEncoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogPlainEncoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadKeyMapping.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReadKeyMapping.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadManager.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReadsMapper.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReadsMapper.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogReusableBinaryTree.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogReusableBinaryTree.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSamWriter.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSamWriter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogScheduler.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSingleRead.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSingleRead.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogStateMachineGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogStateMachineGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogSwapBitwiseAT1GC0Encoding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ogTupleGuider.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="ogTupleGuider.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sequenceRead.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="sequenceRead.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
