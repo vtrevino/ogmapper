@@ -23,7 +23,7 @@ If one of the above binaries runs in your system, I recommend using it if they d
 ogMapper uses the WFA2 library to perform alignment operations when needed. I provide the latest version used to build the binaries shown above. Users may opt to download the latest WFA version from https://github.com/smarco/WFA2-lib. You may follow the original WFA2 instructions or follow the steps below as a guide. The goal is to build a library file suitable for ogMapper (libwfacpp.a) that needs to be placed in the /lib folder to be able to compile ogMapper.
 
 ### Compiling WFA2 from .zip
-- MacOSX: Assuming Xcode command line tools are already installed, download <a href="WFA2-lib-main.zip">WFA2-lib-main.zip</a> and then 
+- MacOSX: Assuming Xcode command line tools and brew are already installed, download <a href="WFA2-lib-main.zip">WFA2-lib-main.zip</a> and then 
 
         # Install llvm and libomp
         brew install llvm libomp
@@ -44,6 +44,7 @@ tools/align_benchmark/Makefile
         cd WFA2-lib-main
         make clean
         # Edit all Makefiles replacing -lomp flag to -fopenmp (Makefile,  wavefront/Makefile, tools/align_benchmark/Makefile, examples/Makefile)
+        # Files : Makefile,  wavefront/Makefile, tools/align_benchmark/Makefile, examples/Makefile
         make build
         # This should generate libwfacpp.a in the lib/ folder
         cp lib/libwfacpp.a [your ogMapper/lib]
