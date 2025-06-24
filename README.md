@@ -220,6 +220,7 @@ The typical run:
 
         ogmapper index -k 24 -g TupleGuider:XXX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XXX-BW chm13v2.0.fa.gz 
 
+<a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publish <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>
 
 ## Mapping short DNA reads
 Ok
