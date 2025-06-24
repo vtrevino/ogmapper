@@ -49,7 +49,7 @@ tools/align_benchmark/Makefile
         cd WFA2-lib-main
         make clean
   
-        # Edit all Makefiles replacing -lomp flag to -fopenmp (Makefile,  wavefront/Makefile, tools/align_benchmark/Makefile, examples/Makefile)
+        # Edit all Makefiles replacing -lomp flag to -fopenmp (or -openmp, -gomp)
         # Files : Makefile,  wavefront/Makefile, tools/align_benchmark/Makefile, examples/Makefile
         # This "make" should generate libwfacpp.a in the lib/ folder
         make build
