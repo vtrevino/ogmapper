@@ -25,6 +25,9 @@ ogMapper uses the WFA2 library to perform alignment operations when needed. I pr
 ### Compiling WFA2 from .zip
 - MacOSX: Assuming Xcode command line tools are already installed, download <a href="WFA2-lib-main.zip">WFA2-lib-main.zip</a> and then 
 
+        # Install llvm and libomp
+        brew install llvm libomp
+        # Make WFA2
         unzip WFA2-lib-main.zip
         cd WFA2-lib-main
         make clean
@@ -32,7 +35,7 @@ ogMapper uses the WFA2 library to perform alignment operations when needed. I pr
         # This should generate libwfacpp.a in the lib/ folder
         cp lib/libwfacpp.a [your ogMapper/lib]
         # Copy libwfacpp.a into ogMapper folder under lib/ 
-
+If you have problems with "VERSION" at compile time
 
 - Linux: Assuming c/c++ compilers are installed, download <a href="WFA2-lib-main.zip">WFA2-lib-main.zip</a> and then 
 tools/align_benchmark/Makefile
