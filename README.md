@@ -208,20 +208,27 @@ Running ogMapper without any arguments shows:
               -bs <n>  Sets buffer size sam output file.
 
 
-## Index Generation for DNA
+## Processing DNA reads
+
+### Index Generation for DNA
 For indexing DNA the valid options are:
 
       ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]
         [-m 0/1] [-o <index-file-no-ext>] <genome-fasta.gz>
 
+The typical run:
 
-The typical run
+        ogmapper index -k 24 -g TupleGuider:XXX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XXX-BW chm13v2.0.fa.gz 
+
 
 ## Mapping short DNA reads
 Ok
-## Index Generation for RNA
+
+## Processing RNA reads (for counts)
+### Index Generation for RNA
 Ok
-## Mapping/Counting RNA reads
+### Mapping/Counting RNA reads
 Ok
+
 ## Other Options
 Ok
