@@ -75,7 +75,23 @@ Ok
 ogMapper introduced some concepts and also used novel explorative functions. ogMapper does not index all possible DNA subsequences. It first sweeps the DNA sequence until a specific sequence pattern is found; this pattern is known as a "guide". Thus, there are two guiders implemented up to now. Once a guide is found, the following DNA sequence of length k (provided by -k argument) is used to build a key, which will be indexed. The key is a binary representation of the DNA sequence, which is provided by an encoding function. There are four encoding functions implemented so far. Once a guide-key is processed, the DNA sweeping continues after the last guide until the whole sequence has been analyzed.
 
 ### Guiders (-g option)
-- TupleGuider : The tuple guider is a simple map of all possible n-nt combinations specifying which of them will be indexed and which will not. The file format is as follows:
+- TupleGuider : The tuple guider is a simple map of all possible n-nt combinations specifying which of them will be indexed and which will not. ogMapper includes a folder of pre-configured Guider files (guiders/ folder). The file format needs first 4 lines for parameters then the needed lines for tuples.
+
+        # Next lines start with "small extension name", maxLenNoPattern, isSymmetric, GuideLen
+        XYXt
+        24
+        1
+        3
+        # Next lines start tuples and guiders
+        #Tuple	isGuider	NT_to_advance	Comment
+        AAA	0	1	x
+        AAC	0	1	x
+        AAG	0	1	x
+        AAT	0	1	x
+        ACA	1	3	Index
+        ACC	0	1	x
+        ...
+        
 
 To use the TuppleGuider use the option -g TupleGuider:&lt;tuple-file&gt;.
   
@@ -222,9 +238,7 @@ The typical run:
 
     ogmapper index -k 24 -g TupleGuider:XXX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XXX-BW chm13v2.0.fa.gz 
 
-The above command will generate the index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB.
-
-<a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publish <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI.
+The above command will generate the index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publish <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. The -g option specifies a TupleGuider and -e the 1-bit-1-nt encoding. See encodings and Guiders sections.
 
 
 ## Mapping short DNA reads
