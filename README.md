@@ -280,7 +280,7 @@ For indexing DNA the valid options are:
 
 The guiders/ folder contains the state/ and tuple/ folders, which include pre-configured guiders files. Copy the file needed before running the indexing command, for example, the XXX-Tuple-og.txt file used below.
 
-The typical run:
+A typical run:
 
     ogmapper index -k 24 -g TupleGuider:XXX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XXX-BW chm13v2.0.fa.gz 
 
@@ -293,7 +293,7 @@ For mapping, a typical run looks like:
 
 Most parameters are self explained in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
 
-## Processing RNA reads (for counts)
+## Processing RNA reads (for pseudo-counts)
 ### Index Generation for RNA
 Ok
 ### Mapping/Counting RNA reads
