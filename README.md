@@ -5,7 +5,7 @@ ogMapper generates a tiny index file and memory operations, typically as a fract
 For example, 1.7 GiB for T2T human genome v2 plus 0.7 GiB for the compressed genome (file ~ 2.4 GiB) and similar amounts of memory in run time, irrespective of the number of threads. This is for 24-bit keys.
 The common process starts by creating an index file (*.ogi), then mapping short reads (in pairs or not) to generate .sam files.
 
-ogmapper is written in c++. I provide binaries for selected operating systems and source files for compilation.
+ogmapper is written in c++, originally developed in NetBeans 13 on an Intel Mac. I provide binaries for selected operating systems and source files for compilation.
 
 # Binaries
 - MacOS/Intel : <a href="ogmapper-mac-intel-clang">ogmapper-mac-intel-clang</a> or <a href="ogmapper-mac-intel-gnu">ogmapper-mac-intel-gnu</a>
@@ -71,8 +71,10 @@ Follow the instructions provided in WFA2-lib.
 ### Compiling ogMapper on Linux
 Ok
 
-# Introduction to Encodings, Guiders, and Keys
+# Introduction to Encodings, Guiders, Keys, and Mapping functions
 ogMapper introduced some concepts and also used novel explorative functions. ogMapper does not index all possible DNA subsequences. It first sweeps the DNA sequence until a specific sequence pattern is found; this pattern is known as a "guide". Thus, there are two guiders implemented up to now. Once a guide is found, the following DNA sequence of length k (provided by -k argument) is used to build a key, which will be indexed. The key is a binary representation of the DNA sequence, which is provided by an encoding function. There are four encoding functions implemented so far. Once a guide-key is processed, the DNA sweeping continues after the last guide until the whole sequence has been analyzed.
+
+For mapping, ogMapper runs a list of mapping functions until one of them maps the reads properly. There are many mapping functions. See the Mapping sections for details.
 
 ### Guiders (-g option)
 - TupleGuider: The tuple guider is a simple map of all possible n-nt combinations specifying which of them will be indexed and which will not. ogMapper includes a folder of pre-configured Guider files (guiders/ folder). The file format needs first 4 lines for parameters then the needed lines for tuples.
@@ -113,6 +115,46 @@ The **GappedBitwiseAT1GC0Encoding** is similar to BitwiseAT1GC0Encoding but the 
 The **SwapBitwiseAT1GC0Encoding** is similar to BitwiseAT1GC0Encoding but it uses non-continuous nt indexing, one nt and skipping one until k is reached.
 
 The **HPCEncoding** (homo-polymer compressed) ignores consecutive repetitions of a nucleotide and then uses 'plain' encoding as the **PlainEncoding** above.
+
+
+### Mapping Functions
+The schedule option (-s) specifies the order of the functions used to attempt mapping each read. In ogMapper, the algorithm for mapping runs a list of mapping functions until one of them maps the reads properly. There are many mapping functions. The list is controlled by the argument -s (schedule). The default is x4s where 'x','4', and 's' are mapping functions. The '4' function is used only when 'x' is unable to map, and so on the next functions. 
+
+The list of functions are:
+
+x – blast_like (schedules x, X, o, O): Check all positions for each key. Process in “x”: for each key in low-to-high size-ordered keys, pick the position of maximum matching. Stop if identity is higher than 98%. Forward keys and reverse keys are tested. Only use the keys with less than LowKeyCountLimit/2 (LowKeyCountLimit = 53 for CHM13v2 using BitwiseAT1GC0Encoding and XXX guide). All positions with the same best score are added. “X” uses 99% identity and keys sizes < LowKeyCountLimit. “o” uses 100% identity and key sizes < HighKeyCountLimit = 79 for CHM13v2 and BitwiseAT1GC0Encoding on XXX guide. “O” uses 100% identity and all key sizes. The speed order is xXoO while the accuracy is OoXx. In general, not good for indels around keys but highly accurate and fast for most nowadays small reads.
+
+4 – extreme keys (schedules 4, 5, 6): Check intersections of positions from keys in the left part of the read with those positions of the right part of the read. Process for “4”: for each key within the first half of keys, check intersections with positions +/- 3 nt from keys of the right part of the read. Intersections are added. Only keys sizes <  LowKeyCountLimit are considered. Forward keys and reverse keys are tested. “5” uses key sizes < HighKeyCountLimit. “6” uses key sizes < HighKeyCountLimit * 10. Small indels are well handled.
+
+s – two consistent keys (schedules s, S, Z) : Intersect positions of two non-overlapping keys. Process for “s”: for unmarked keys, take one key and search for a non-overlapping unmarked key. If they have shared a position (+/- 3 indels), add it to possible matches, otherwise mark them to avoid re-check. Only keys sizes <  LowKeyCountLimit. Forward keys and reverse keys are tested. “S” uses key sizes < HighKeyCountLimit while “Z” uses 10 * HighKeyCountLimit. 
+
+l – left consistent keys (schedules l, L, Y) : Intersect positions of two not close keys (> 10 bp) starting from leftmost keys. Process for “l”: starting from leftmost key, take a key and get next not close key, add intersecting positions (+/-3 indels). Forward keys and reverse keys are tested. Only keys sizes <  LowKeyCountLimit are tested. “L” uses key sizes < HighKeyCountLimit while “Y” uses < 10 * HighKeyCountLimit.
+
+h – (schedules h, H, j, J) : Sorted-size Histogram : An initial 1000-bin histogram is built from key positions. If a position re-occurs in a bin, a second pseudo-histogram is built also on different positions. Forward keys and reverse keys are tested. “h” uses keys sizes <  LowKeyCountLimit, “H” < HighKeyCountLimit, “j” < 10 * HighKeyCountLimit, and “J” all keys.
+
+n – (schedules n, N) : Nested intersect positions : Intersect positions of a keys “i” and “i+2” considering small indels (+/- 3 nt). Forward keys and reverse keys are tested. “n” uses keys sizes <  LowKeyCountLimit while “N” uses HighKeyCountLimit.
+
+a – (a) : MinApart2Keys : *pending description*
+
+i – (i) : *pending description*
+
+m – (m, M, w, W) : *pending description*
+
+P – (P) : *pending description*
+
+1 – (1, 2, 3) : *pending description*
+
+b – (b, B, V, v) : *pending description*
+
+u – (u, U, c, C) : *pending description*
+
+7 – (7, 8, 9) : *pending description*
+
+k – (k, K, 0) : *pending description*
+
+q – (q, Q, G) : *pending description*
+
+If more than 1 position is added to the pool of possibles or raw alignment is lower than 90%, alignment is performed and the best positions is chosen (unless rules for alternative alignments apply).
 
 
 # Running ogMapper
@@ -242,11 +284,15 @@ The typical run:
 
     ogmapper index -k 24 -g TupleGuider:XXX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XXX-BW chm13v2.0.fa.gz 
 
-The above command will generate the index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publish <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. The -g option specifies a TupleGuider and -e the 1-bit-1-nt encoding. See encodings and Guiders sections.
-
+The above command will generate the index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publish <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. The -g option specifies a TupleGuider. The file XXX-Tuple-og.txt must be available in the same folder than data. This file is included in ogMapper in the guiders/ folder. The -e option specifies the 1-bit-1-nt encoding. See Encodings and Guiders sections above for details.
 
 ## Mapping short DNA reads
-Ok
+For mapping, a typical run looks like:
+
+        ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XXX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
+
+Most parameters are self explained in the default output (without arguments). See the section ogMapper options (above). The schedule option (-s) specifies the order of the functions used to attempt mapping each read. In ogMapper, the algorithm for mapping runs a list of mapping functions until one of them maps the reads properly. There are many mapping functions.
+
 
 ## Processing RNA reads (for counts)
 ### Index Generation for RNA
