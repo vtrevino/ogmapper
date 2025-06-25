@@ -291,8 +291,7 @@ For mapping, a typical run looks like:
 
         ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XXX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
 
-Most parameters are self explained in the default output (without arguments). See the section ogMapper options (above). The schedule option (-s) specifies the order of the functions used to attempt mapping each read. In ogMapper, the algorithm for mapping runs a list of mapping functions until one of them maps the reads properly. There are many mapping functions.
-
+Most parameters are self explained in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
 
 ## Processing RNA reads (for counts)
 ### Index Generation for RNA
