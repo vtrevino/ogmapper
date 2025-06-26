@@ -111,7 +111,7 @@ I recommend using tuple guiders since they are easier to understand and maintain
   
 - StateMachineGuider: State machine guiders are used when not simple mappings can be specified using Tuples. For instance, if you want a variable-length guiders, it cannot be done with Tuples.
   
-StateMachineGuider:&lt;state-file&gt;
+To use the StateMachineGuider use the option -g StateMachineGuider:&lt;state-file&gt;.
 
 ### Encodings
 The encoding transforms the DNA sequence to a binary key. I recommend BitWise and Plain.
