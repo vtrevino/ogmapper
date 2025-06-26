@@ -237,7 +237,6 @@ Running ogMapper without any arguments shows:
                       File may end with .gz but is quite slower.
               -k      Key size, in nt depending on the encoding.
               -m      Enables low memory access (-m 1) to save memory when indexing.
-      Default 0.
                       Default to 0.
               -s      'schedule' functions to call for read mappings.
               -UC     Force uppercase reads.
