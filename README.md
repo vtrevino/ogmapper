@@ -314,10 +314,10 @@ Syntax:
       ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>
 
 Output:
-1) &gt;genome&lt;-GTF.fq.gz file.
-2) &gt;gtf&lt;.genes.ogx file.
-3) &gt;gtf&lt;.exons.ogx file.
-4) &gt;gtf&lt;.transcripts.ogx file.
+1) &lt;genome&gt;-GTF.fq.gz file.
+2) &lt;gtf&gt;.genes.ogx file.
+3) &lt;gtf&gt;.exons.ogx file.
+4) &lt;gtf&gt;.transcripts.ogx file.
 
 Example:
       ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>
