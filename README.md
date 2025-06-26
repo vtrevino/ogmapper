@@ -311,6 +311,7 @@ This section explains how to use ogMapper to estimate fast pseudo-counts from RN
 This step extracts the sequences genes, exons, and transcripts from a fasta-genome 
 
 Syntax:
+
       ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>
 
 Output:
