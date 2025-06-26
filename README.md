@@ -74,7 +74,7 @@ Assuming Xcode command line tools and brew are already installed and WFA2 librar
         # This should generate a binary in dist/Release
 
 ### Compiling ogMapper on Linux
-Assuming Xcode command line tools and brew are already installed and WFA2 library is copied in the ogMapper/lib folder:
+Assuming c/c++ compilers are installed and WFA2 library is copied in the ogMapper/lib folder:
 
         cd ogMapper
         make clean
