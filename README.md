@@ -303,10 +303,21 @@ For mapping, a typical run looks like:
 Most parameters are self explained in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
 
 ## Processing RNA reads (for pseudo-counts)
+This section explains how to use ogMapper to estimate fast pseudo-counts from RNA-Seq experiments.
+
 ### Index Generation for RNA
-Ok
+
+#### Step 1:
+      ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>
+  
+           Prepare files for pseudo-counting (step 1).
+           Output:
+           - <genome>-GTF.fq.gz file.
+           - <gtf>.genes.ogx file.
+           - <gtf>.exons.ogx file.
+           - <gtf>.transcripts.ogx file.
+  
+
 ### Mapping/Counting RNA reads
 Ok
 
-## Other Options
-Ok
