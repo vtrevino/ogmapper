@@ -327,7 +327,7 @@ This command generated the files:
 3) chm13v2-GTF.exons.ogx (size 13814360)
 
 
-#### Step 2: Generate gene/exon/transcript-based indexes
+#### Step 2: Generate exon/transcript-based indexes
 
 Syntax:
 
@@ -342,10 +342,12 @@ Output:
 
 Example:
 
-        # Download https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz
         ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -m 1 
                 -gtf GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz -ogx chm13v2-GTF 
                 -o chm13v2-GTF chm13v2-GTF-GTF.fq.gz
+
+Links: <a href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz">.gtf.gz</a> file can be downloaded from NCBI
+
 Output:
 1) chm13v2-GTF.ogi (size 281751943)
 2) chm13v2-GTF-GTF_gTplXYXt_eBWat1gc0-24.TO_REMOVE.ogX (size 33759692)
