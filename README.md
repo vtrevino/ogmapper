@@ -358,3 +358,12 @@ Output:
 
 #### Step 3: Counting RNA reads
 
+Syntax:
+
+           ogmapper count [-k <keysize>] [-s <sched>] [-q <nQueue>] [-UC <0/1>]
+               [-t <nThreads>] [-p <0/1>] -i <complete-index-file> [-d <n>]
+               [-maxreadlen <length>] [-maxreads <n>] [-startread <n>]
+               [-genes <outfile>] [-exons <outfile>] [-transcripts <outfile>]
+               [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]
+               [-1 <ogx> <reads.gz>] [-2 <ogx> <read-1.gz> <read-2.gz>]
+
