@@ -238,7 +238,7 @@ Running ogMapper without any arguments shows:
               -k      Key size, in nt depending on the encoding.
               -m      Enables low memory access (-m 1) to save memory when indexing.
                       Default to 0.
-              -s      'schedule' functions to call for read mappings.
+              -s      'schedule' functions to call for read mappings. Default 'x4s'.
               -UC     Force uppercase reads.
               -kd     Specifies key distance.
               -q      Queue size for reads. Default 10000. Removal 0. Recommended >= 1000.
@@ -300,10 +300,10 @@ For mapping, a typical run looks like:
 
         ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XXX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
 
-Most parameters are self explained in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
+Most parameters are self-explanatory in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
 
 ## Processing RNA reads (for pseudo-counts)
-Overall, using ogMapper, one can pseudo-quantify the gene expression from RNA-Seq experiments using the fast mapping. For this, the sequence of exons and transcripts is extracted from DNA to generate fasta files with the sequence of each transcript or exon. Then, these sequences are indexed and RNA reads are mapped to them. This section explains how to use ogMapper to estimate fast pseudo-counts from RNA-Seq experiments.
+Overall, using ogMapper, one can pseudo-quantify the gene expression from RNA-Seq experiments using the fast mapping. For this, the sequence of exons and transcripts is extracted from DNA to generate fasta files with the sequence of each transcript or exon. Then, these sequences are indexed, and RNA reads are mapped to them. This section explains how to use ogMapper to estimate fast pseudo-counts from RNA-Seq experiments.
 
 #### Step 1: Generate GTF indexes
 This step extracts the sequences for genes, exons, and transcripts from a fasta genome and gtf/gff files.
@@ -314,8 +314,8 @@ Syntax:
 
 Output:
 1) &lt;genome&gt;-GTF.fq.gz file.
-2) &lt;gtf&gt;.exons.ogx file.
-3) &lt;gtf&gt;.transcripts.ogx file.
+2) &lt;genome&gt;-GTF.exons.ogx file.
+3) &lt;genome&gt;-GTF.transcripts.ogx file.
 
 Example:
 
