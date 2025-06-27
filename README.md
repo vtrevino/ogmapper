@@ -303,10 +303,10 @@ For mapping, a typical run looks like:
 Most parameters are self explained in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
 
 ## Processing RNA reads (for pseudo-counts)
-This section explains how to use ogMapper to estimate fast pseudo-counts from RNA-Seq experiments.
+Overall, using ogMapper, one can pseudo-quantify the gene expression from RNA-Seq experiments using the fast mapping. For this, the sequence of exons and transcripts is extracted from DNA to generate fasta files with the sequence of each transcript or exon. Then, these sequences are indexed and RNA reads are mapped to them. This section explains how to use ogMapper to estimate fast pseudo-counts from RNA-Seq experiments.
 
 #### Step 1: Generate GTF indexes
-This step extracts the sequences for genes, exons, and transcripts from a fasta genome files and gtf/gff files.
+This step extracts the sequences for genes, exons, and transcripts from a fasta genome and gtf/gff files.
 
 Syntax:
 
@@ -320,9 +320,26 @@ Output:
 
 Example:
 
-      ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>
+      ogmapper index-GTF -o chm13v2-GTF GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz chm13v2.0.fa.gz
 
-#### Step 2: Generate RNA-based DNA indexes
+#### Step 2: Generate gene/exon/transcript-based indexes
+
+Syntax:
+
+          ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]
+              [-m 0/1] [-gtf <file>] [-ogx <ogx-prefix-file-name>]
+              [-o <index-file-no-ext>] <genome-fasta.gz>
+      
+The -gtf argument specifies the .gtf/.gff file used in Step 1. The -ogx argument specifies the name used in -o argument in Step 1.
+
+Output:
+1) .ogi file (index).
+
+Example:
+
+        # Download https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz
+        
+
 
 #### Step 3: Counting RNA reads
 
