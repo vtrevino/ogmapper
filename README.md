@@ -349,7 +349,6 @@ Example:
 Output:
 1) chm13v2-GTF.ogi (size 281751943)
 2) chm13v2-GTF-GTF_gTplXYXt_eBWat1gc0-24.TO_REMOVE.ogX (size 33759692)
-3) chm13v2.0_gTplXYXt_eBWat1gc0-24.TO_REMOVE.ogX (size 43515043)
 
 
 #### Step 3: Counting RNA reads
