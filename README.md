@@ -314,13 +314,18 @@ Syntax:
 
 Output:
 1) &lt;genome&gt;-GTF.fq.gz file.
-2) &lt;gtf&gt;.genes.ogx file.
-3) &lt;gtf&gt;.exons.ogx file.
-4) &lt;gtf&gt;.transcripts.ogx file.
+2) &lt;gtf&gt;.exons.ogx file.
+3) &lt;gtf&gt;.transcripts.ogx file.
 
 Example:
 
       ogmapper index-GTF -o chm13v2-GTF GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz chm13v2.0.fa.gz
+
+This command generated the files:
+1) chm13v2-GTF-GTF.fq.gz (size 52417961)
+2) chm13v2-GTF.transcripts.ogx (size 8788712)
+3) chm13v2-GTF.exons.ogx (size 13814360)
+
 
 #### Step 2: Generate gene/exon/transcript-based indexes
 
@@ -338,7 +343,13 @@ Output:
 Example:
 
         # Download https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz
-        
+        ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -m 1 
+                -gtf GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz -ogx chm13v2-GTF 
+                -o chm13v2-GTF chm13v2-GTF-GTF.fq.gz
+Output:
+1) chm13v2-GTF.ogi (size 281751943)
+2) chm13v2-GTF-GTF_gTplXYXt_eBWat1gc0-24.TO_REMOVE.ogX (size 33759692)
+3) chm13v2.0_gTplXYXt_eBWat1gc0-24.TO_REMOVE.ogX (size 43515043)
 
 
 #### Step 3: Counting RNA reads
