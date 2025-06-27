@@ -42,7 +42,7 @@ If you have problems with "VERSION" at compile time, rename it to "__VERSION".
 If you have problems with LIBOMP you may need one of the compile flags: "-lomp", "-fopenmp", "-openmp", or "-gomp", depending on the library installed.
 
 - Linux: Assuming c/c++ compilers are installed, download <a href="WFA2-lib-main.zip">WFA2-lib-main.zip</a> and then 
-tools/align_benchmark/Makefile
+edit all Makefile to update the -lomp flag if needed.
 
         # 
         unzip WFA2-lib-main.zip
