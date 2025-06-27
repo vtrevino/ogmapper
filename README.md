@@ -321,6 +321,11 @@ Example:
 
       ogmapper index-GTF -o chm13v2-GTF GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz chm13v2.0.fa.gz
 
+Links:
+1) <a href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz">.gtf.gz</a> file can be downloaded from NCBI.
+2) <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a> can be downloaded from CHM13 - T2T.
+
+
 This command generated the files:
 1) chm13v2-GTF-GTF.fq.gz (size 52417961)
 2) chm13v2-GTF.transcripts.ogx (size 8788712)
@@ -345,8 +350,6 @@ Example:
         ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -m 1 
                 -gtf GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz -ogx chm13v2-GTF 
                 -o chm13v2-GTF chm13v2-GTF-GTF.fq.gz
-
-Links: <a href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz">.gtf.gz</a> file can be downloaded from NCBI
 
 Output:
 1) chm13v2-GTF.ogi (size 281751943)
