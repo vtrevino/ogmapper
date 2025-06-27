@@ -291,14 +291,18 @@ The guiders/ folder contains the state/ and tuple/ folders, which include pre-co
 
 A typical run:
 
-    ogmapper index -k 24 -g TupleGuider:XXX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XXX-BW chm13v2.0.fa.gz 
+    ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XYX-BW chm13v2.0.fa.gz 
+
+Keys of 24 nt encoded by bitwise using TupleGuider XYX saving on chm13v2-XYX-BW and using the genome chm13v2.0.fa.gz.
 
 The above command will generate the index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publish <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. The -g option specifies a TupleGuider. The file XXX-Tuple-og.txt must be available in the same folder than data. This file is included in ogMapper in the guiders/ folder. The -e option specifies the 1-bit-1-nt encoding. See Encodings and Guiders sections above for details.
 
 ## Mapping short DNA reads
 For mapping, a typical run looks like:
 
-        ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XXX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
+        ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XYX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
+
+Map paired reads U0a_R1/R2 using index chm13v2-XYX-BW.ogi saving results in og.sam, use the schedule x4s, 8 threads, in production mode (-p 1).
 
 Most parameters are self-explanatory in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
 
@@ -367,3 +371,8 @@ Syntax:
                [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]
                [-1 <ogx> <reads.gz>] [-2 <ogx> <read-1.gz> <read-2.gz>]
 
+Output:
+
+Example:
+
+Output:
