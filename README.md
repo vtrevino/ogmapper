@@ -305,10 +305,8 @@ Most parameters are self explained in the default output (without arguments). Se
 ## Processing RNA reads (for pseudo-counts)
 This section explains how to use ogMapper to estimate fast pseudo-counts from RNA-Seq experiments.
 
-### Index Generation for RNA
-
 #### Step 1: Generate GTF indexes
-This step extracts the sequences genes, exons, and transcripts from a fasta-genome 
+This step extracts the sequences for genes, exons, and transcripts from a fasta genome files and gtf/gff files.
 
 Syntax:
 
@@ -321,8 +319,10 @@ Output:
 4) &lt;gtf&gt;.transcripts.ogx file.
 
 Example:
+
       ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>
 
-### Mapping/Counting RNA reads
-Ok
+#### Step 2: Generate RNA-based DNA indexes
+
+#### Step 3: Counting RNA reads
 
