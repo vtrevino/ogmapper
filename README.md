@@ -377,6 +377,7 @@ Output depending on parameters:
 3) gene counts (.txt)
 
 Example:
+
         ogmapper count -i chm13v2-GTF.ogi -s 789 
         -genes gene-count.txt -exons exon-count.txt -transcripts transcripts-count.txt 
         -2 chm13v2 U0a_CGATGT_L001_R1_001.fastq.gz U0a_CGATGT_L001_R2_001.fastq.gz
