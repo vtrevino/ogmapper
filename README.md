@@ -385,3 +385,4 @@ Output:
 2) exon-count.txt
 3) transcripts-count.txt
 
+Files can be downloaded from <a href="https://www.nist.gov/programs-projects/genome-bottle" target="_blank">Genome In A Bottle</a> <a href="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_RNAseq/AshkenazimTrio/HG002_NA24385_son/Google_Illumina/mRNA/reads/" target="_blank">folder</a>.
