@@ -378,11 +378,11 @@ Output depending on parameters:
 
 Example:
 
-        ogmapper count -i chm13v2-GTF.ogi -s 789 -genes gene-count.txt -exons exon-count.txt -transcripts transcripts-count.txt -2 chm13v2 U0a_CGATGT_L001_R1_001.fastq.gz U0a_CGATGT_L001_R2_001.fastq.gz
+        ogmapper count -i chm13v2-GTF.ogi -s 789 -genes gene-count.txt -exons exon-count.txt -transcripts transcripts-count.txt -2 chm13v2 hg002_gm24385.mrna.R1.fastq.gz hg002_gm24385.mrna.R2.fastq.gz
 
 Output:
 1) gene-count.txt
 2) exon-count.txt
 3) transcripts-count.txt
 
-Files can be downloaded from <a href="https://www.nist.gov/programs-projects/genome-bottle" target="_blank">Genome In A Bottle</a> <a href="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_RNAseq/AshkenazimTrio/HG002_NA24385_son/Google_Illumina/mRNA/reads/" target="_blank">folder</a>.
+Files can be downloaded from <a href="https://www.nist.gov/programs-projects/genome-bottle" target="_blank">Genome In A Bottle</a> project, in this <a href="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_RNAseq/AshkenazimTrio/HG002_NA24385_son/Google_Illumina/mRNA/reads/" target="_blank">folder</a>.
