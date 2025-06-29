@@ -318,8 +318,8 @@ Syntax:
 
 Output:
 1) &lt;genome&gt;-GTF.fq.gz file.
-2) &lt;genome&gt;-GTF.exons.ogx file.
-3) &lt;genome&gt;-GTF.transcripts.ogx file.
+2) &lt;genome&gt;.exons.ogx file.
+3) &lt;genome&gt;.transcripts.ogx file.
 
 Example:
 
@@ -332,8 +332,8 @@ Links:
 
 This command generated the files:
 1) chm13v2-GTF.fq.gz (size 52417961)
-2) chm13v2-GTF.transcripts.ogx (size 8788712)
-3) chm13v2-GTF.exons.ogx (size 13814360)
+2) chm13v2.transcripts.ogx (size 8788712)
+3) chm13v2.exons.ogx (size 13814360)
 
 
 #### Step 2: Generate exon/transcript-based indexes
