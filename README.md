@@ -351,9 +351,7 @@ Output:
 
 Example:
 
-        ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -m 1 
-                -gtf GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz -ogx chm13v2 
-                -o chm13v2-GTF chm13v2-GTF.fq.gz
+        ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -m 1 -gtf GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz -ogx chm13v2 -o chm13v2-GTF chm13v2-GTF.fq.gz
 
 Output:
 1) chm13v2-GTF.ogi (size 281751943)
