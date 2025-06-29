@@ -295,7 +295,7 @@ A typical run:
 
 Keys of 24 nt encoded by bitwise using TupleGuider XYX saving on chm13v2-XYX-BW and using the genome chm13v2.0.fa.gz.
 
-The above command will generate the index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publish <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. The -g option specifies a TupleGuider. The file XXX-Tuple-og.txt must be available in the same folder than data. This file is included in ogMapper in the guiders/ folder. The -e option specifies the 1-bit-1-nt encoding. See Encodings and Guiders sections above for details.
+The above command will generate the index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publishes <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. The -g option specifies a TupleGuider. The file XXX-Tuple-og.txt must be available in the same folder than data. This file is included in ogMapper in the guiders/ folder. The -e option specifies the 1-bit-1-nt encoding. See Encodings and Guiders sections above for details.
 
 ## Mapping short DNA reads
 For mapping, a typical run looks like:
@@ -303,6 +303,8 @@ For mapping, a typical run looks like:
         ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XYX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
 
 Map paired reads U0a_R1/R2 using index chm13v2-XYX-BW.ogi saving results in og.sam, use the schedule x4s, 8 threads, in production mode (-p 1).
+
+Files U0a_R1.fq.gz and U0a_R2.fq.gz can be downloaded from Genome in a Bottle <a href="https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/" target="_blank">files</a> (renamed from U0a_CGATGT_L001_R1_001.fastq.gz and U0a_CGATGT_L001_R1_002.fastq.gz respectively).
 
 Most parameters are self-explanatory in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
 
