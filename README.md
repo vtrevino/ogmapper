@@ -323,7 +323,7 @@ Output:
 
 Example:
 
-      ogmapper index-GTF -o chm13v2-GTF GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz chm13v2.0.fa.gz
+      ogmapper index-GTF -o chm13v2 GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz chm13v2.0.fa.gz
 
 Links:
 1) <a href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz">.gtf.gz</a> file can be downloaded from NCBI.
@@ -331,7 +331,7 @@ Links:
 
 
 This command generated the files:
-1) chm13v2-GTF-GTF.fq.gz (size 52417961)
+1) chm13v2-GTF.fq.gz (size 52417961)
 2) chm13v2-GTF.transcripts.ogx (size 8788712)
 3) chm13v2-GTF.exons.ogx (size 13814360)
 
@@ -352,12 +352,12 @@ Output:
 Example:
 
         ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -m 1 
-                -gtf GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz -ogx chm13v2-GTF 
-                -o chm13v2-GTF chm13v2-GTF-GTF.fq.gz
+                -gtf GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz -ogx chm13v2 
+                -o chm13v2-GTF chm13v2-GTF.fq.gz
 
 Output:
 1) chm13v2-GTF.ogi (size 281751943)
-2) chm13v2-GTF-GTF_gTplXYXt_eBWat1gc0-24.TO_REMOVE.ogX (size 33759692)
+2) chm13v2-GTF_gTplXYXt_eBWat1gc0-24.TO_REMOVE.ogX (size 33759692)
 
 
 #### Step 3: Counting RNA reads
