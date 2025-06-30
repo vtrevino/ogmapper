@@ -293,9 +293,17 @@ A typical run:
 
     ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XYX-BW chm13v2.0.fa.gz 
 
-Keys of 24 nt encoded by bitwise using TupleGuider XYX saving on chm13v2-XYX-BW and using the genome chm13v2.0.fa.gz.
+Keys of 24 nt encoded by bitwise using TupleGuider XYX saving on chm13v2-XYX-BW and using the genome chm13v2.0.fa.gz. The -g option specifies a TupleGuider. The file XXX-Tuple-og.txt must be available in the same folder than data. This file is included in ogMapper in the guiders/ folder. The -e option specifies the 1-bit-1-nt encoding. See Encodings and Guiders sections above for details.
 
-The above command will generate the index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publishes <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. The -g option specifies a TupleGuider. The file XXX-Tuple-og.txt must be available in the same folder than data. This file is included in ogMapper in the guiders/ folder. The -e option specifies the 1-bit-1-nt encoding. See Encodings and Guiders sections above for details.
+Links:
+<a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publishes <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. 
+
+Output (2.7 GiB RAM, 2 min 10 secs in Mac M3 Max):
+1) Index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. 
+
+Output using -m 1 flag (1.49 then 2.4 GiB RAM, 2 min 45 secs in Mac M3 Max):
+1) Index file "chm13v2-XXX-BW.ogi" of ~2.7 GiB. 
+
 
 ## Mapping short DNA reads
 For mapping, a typical run looks like:
