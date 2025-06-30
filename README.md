@@ -315,7 +315,7 @@ Output (4 M reads, 18 secs in a Mac M3 Max):
 
 Map paired reads U0a_R1/R2 using index chm13v2-XYX-BW.ogi saving results in og.sam, use the schedule x4s, 8 threads, in production mode (-p 1).
 
-Files U0a_R1.fq.gz and U0a_R2.fq.gz can be downloaded from Genome in a Bottle <a href="https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/" target="_blank">files</a> (renamed from U0a_CGATGT_L001_R1_001.fastq.gz and U0a_CGATGT_L001_R1_002.fastq.gz respectively).
+Files U0a_R1.fq.gz and U0a_R2.fq.gz can be downloaded from Genome in a Bottle <a href="https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/" target="_blank">files</a> (renamed from U0a_CGATGT_L001_R1_001.fastq.gz and U0a_CGATGT_L001_R2_001.fastq.gz respectively).
 
 Most parameters are self-explanatory in the default output (without arguments). See the section ogMapper options (above). See also the Mapping Functions sections for details in the -s argument.
 
