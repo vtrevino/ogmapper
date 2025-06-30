@@ -310,6 +310,9 @@ For mapping, a typical run looks like:
 
         ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XYX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
 
+Output (4 M reads, 18 secs in a Mac M3 Max):
+1) og.sam (3.4 GiB)
+
 Map paired reads U0a_R1/R2 using index chm13v2-XYX-BW.ogi saving results in og.sam, use the schedule x4s, 8 threads, in production mode (-p 1).
 
 Files U0a_R1.fq.gz and U0a_R2.fq.gz can be downloaded from Genome in a Bottle <a href="https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/" target="_blank">files</a> (renamed from U0a_CGATGT_L001_R1_001.fastq.gz and U0a_CGATGT_L001_R1_002.fastq.gz respectively).
