@@ -332,7 +332,7 @@ Links:
 2) <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a> can be downloaded from <a href="https://github.com/marbl/CHM13" target="_blank">CHM13 - T2T</a>.
 
 
-This command generated the files:
+Output (95 secs in Mac M3 Max):
 1) chm13v2-GTF.fq.gz (size 52417961)
 2) chm13v2.transcripts.ogx (size 8788712)
 3) chm13v2.exons.ogx (size 13814360)
@@ -355,7 +355,7 @@ Example:
 
         ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -m 1 -gtf GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz -ogx chm13v2 -o chm13v2-GTF chm13v2-GTF.fq.gz
 
-Output:
+Output (11 secs in Mac M3 Max):
 1) chm13v2-GTF.ogi (size 281751943)
 2) chm13v2-GTF_gTplXYXt_eBWat1gc0-24.TO_REMOVE.ogX (size 33759692)
 
@@ -380,7 +380,7 @@ Example:
 
         ogmapper count -i chm13v2-GTF.ogi -s 789 -genes gene-count.txt -exons exon-count.txt -transcripts transcripts-count.txt -2 chm13v2 hg002_gm24385.mrna.R1.fastq.gz hg002_gm24385.mrna.R2.fastq.gz
 
-Output:
+Output :
 1) gene-count.txt
 2) exon-count.txt
 3) transcripts-count.txt
