@@ -287,7 +287,7 @@ For indexing DNA the valid options are:
       ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]
         [-m 0/1] [-o <index-file-no-ext>] <genome-fasta.gz>
 
-The guiders/ folder contains the state/ and tuple/ folders, which include pre-configured guiders files. Copy the file needed before running the indexing command, for example, the XXX-Tuple-og.txt file used below.
+The guiders/ folder contains the state/ and tuple/ folders, which include pre-configured guiders files. Copy the file needed before running the indexing command, for example, the XYX-Tuple-og.txt file used below.
 
 A typical run:
 
