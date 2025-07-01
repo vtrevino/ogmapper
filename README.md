@@ -293,7 +293,7 @@ A typical run:
 
     ogmapper index -k 24 -g TupleGuider:XYX-Tuple-og.txt -e BitwiseAT1GC0Encoding -o chm13v2-XYX-BW chm13v2.0.fa.gz 
 
-Keys of 24 nt encoded by bitwise using TupleGuider XYX saving on chm13v2-XYX-BW and using the genome chm13v2.0.fa.gz. The -g option specifies a TupleGuider. The file XYX-Tuple-og.txt must be available in the same folder than data. This file is included in ogMapper in the guiders/ folder. The -e option specifies the 1-bit-1-nt encoding. See Encodings and Guiders sections above for details.
+Keys of 24 nt encoded by bitwise using TupleGuider XYX, saving on chm13v2-XYX-BW and using the genome chm13v2.0.fa.gz. The -g option specifies a TupleGuider. The file XYX-Tuple-og.txt must be available in the same folder as data. This file is included in ogMapper in the guiders/ <a href="https://github.com/vtrevino/ogmapper/tree/main/guiders" target="_blank">folder</a>. The -e option specifies the 1-bit-1-nt encoding. See Encodings and Guiders sections above for details.
 
 Links:
 <a href="https://github.com/marbl/CHM13" target="_blank">T2T-CHM13</a> publishes <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a>. There are also versions from NCBI. 
@@ -340,7 +340,7 @@ Example:
 
 Links:
 1) <a href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.gtf.gz">.gtf.gz</a> file can be downloaded from NCBI.
-2) <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a> can be downloaded from <a href="https://github.com/marbl/CHM13" target="_blank">CHM13 - T2T</a>.
+2) <a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz">chmv13v2.0.fa.gz</a> can be downloaded from <a href="https://github.com/marbl/CHM13" target="_blank">CHM13 - T2T project</a>.
 
 
 Output (95 secs in Mac M3 Max):
