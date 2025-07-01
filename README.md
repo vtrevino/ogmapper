@@ -158,13 +158,13 @@ b – (b, B, V, v): *pending description*
 
 u – (u, U, c, C): *pending description*
 
-7 – (7, 8, 9): *pending description*
+7 – (7, 8, 9): RNA Seq - Specific Mapping. For each read, the algorithm finds the best match and only that gene/exon/transcript is updated (unless the same score is found in other gene/exon/transcript in which case a random selection is performed). '7' considers keys with mean+1sd frequency. '8' considers more keys. '9' considers almost all keys. Thus, the speed order is 789 and the mappability is 987.
 
 k – (k, K, 0): *pending description*
 
 q – (q, Q, G): *pending description*
 
-If more than 1 position is added to the pool of possibilities or raw alignment is lower than 90%, alignment is performed and the best positions are chosen (unless rules for alternative alignments apply).
+If more than 1 position is added to the pool of possibilities or raw alignment is lower than 90%, alignment is performed, and the best positions are chosen (unless rules for alternative alignments apply).
 
 
 # Running ogMapper
