@@ -306,6 +306,15 @@ Output using -m 1 flag (1.49 then 2.4 GiB RAM, 2 min 45 secs in Mac M3 Max):
 
 
 ### Mapping short DNA reads
+
+Syntax for mapping:
+
+           ogmapper map [-k <keysize>] [-s <sched>] [-q <nQueue>] [-UC <0/1>]
+               [-t <nThreads>] [-p <0/1>] -i <index-file> [-d <n>]
+               [-maxreadlen <length>] [-maxreads <n>] [-startread <n>]
+               [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]
+               [-1 <reads.gz>] [-2 <read-1.gz> <read-2.gz>]
+
 For mapping, a typical run looks like:
 
         ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XYX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
