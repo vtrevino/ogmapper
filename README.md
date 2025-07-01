@@ -305,7 +305,7 @@ Output using -m 1 flag (1.49 then 2.4 GiB RAM, 2 min 45 secs in Mac M3 Max):
 1) Index file "chm13v2-XYX-BW.ogi" of ~2.7 GiB. 
 
 
-## Mapping short DNA reads
+### Mapping short DNA reads
 For mapping, a typical run looks like:
 
         ogmapper map -s x4s -t 8 -p 1 -i chm13v2-XYX-BW.ogi -o og.sam -2 U0a_R1.fq.gz U0a_R2.fq.gz
