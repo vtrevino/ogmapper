@@ -1,4 +1,4 @@
-# ogmapper
+# ogMapper
 A Fast and Light Genomic Mapper for short reads.
 
 ogMapper generates a tiny index file and memory operations, typically as a fraction of the genome size. 
@@ -11,6 +11,7 @@ ogmapper is written in c++, originally developed in NetBeans 13 on an Intel Mac.
 - MacOS/Intel : <a href="ogmapper-mac-intel-clang">ogmapper-mac-intel-clang</a> or <a href="ogmapper-mac-intel-gnu">ogmapper-mac-intel-gnu</a>
 - MacOS/M : <a href="ogmapper-mac-m-clang">ogmapper-mac-m-clang</a>
 - Linux/x86 : <a href="ogmapper-linux-x86">ogmapper-linux-x86</a>
+- Android : <a href="ogmapper-aarch64-mobile-android">ogmapper-aarch64-mobile-android</a>
 - Windows :(
 
 # Installation
@@ -59,6 +60,31 @@ edit all Makefile to update the -lomp flag if needed.
 If you have problems with "VERSION" at compile time, rename it to "__VERSION".
 If you have problems with LIBOMP you may need one of the compile flags: "-lomp", "-fopenmp", "-openmp", or "-gomp", depending on the library installed.
 
+- Android: Specifically for Android, we need to compile from WFA2 source. As a prerequisite, we need to **install Termux** from Play Store. Then, in Termux:
+
+        # Compile WFA2 within ogmapper Folder in Android:
+        mkdir ogmapper
+        cd ogmapper
+        
+        # update basic libs
+        pkg update
+        pkg upgrade
+        
+        # install compiler and basic compiler libs
+        pkg install clang git build-essential openssl-tool binutils
+        
+        # Download WFA2-Lib
+        git clone https://github.com/smarco/WFA2-lib
+        cd WFA2-lib
+        # edit Makefile to remove -march flag, this is a manual edition.
+        nano Makefile
+        # Replace line ~48 ||| all: CC_FLAGS+=-O3 -march=native #-flto -ffat-lto-objects
+        # with this line   ||| all: CC_FLAGS+=-O3 #-flto -ffat-lto-objects
+        # Compile
+        make clean
+        make
+        cd ..
+
 
 ### Compiling WFA2 from https://github.com/smarco/WFA2-lib
 Follow the instructions provided in WFA2-lib.
@@ -80,6 +106,45 @@ Assuming c/c++ compilers are installed and WFA2 library is copied in the ogMappe
         make clean
         make Release
         # This should generate a binary in dist/Release
+
+### Compiling ogMapper on Android
+The prerequisite is to **install Termux** from Play Store. This was installed on WFA2 lib compilation, though.
+We tested compiling ogMapper on an Android Mobile Phone (OnePlus 5T, ONEPLUS A5010) with 6GB RAM free (2.6GB used). Memory can be checked using the command "free" within Termux. We also tested compiling ogMapper on a Android tablet Samsung (XXXX), with 3 GB RAM.
+We assume WFA2 library has already been compiled.
+
+        # Compile WFA2 in Android:
+        cd ~
+        git clone https://github.com/vtrevino/ogmapper
+        cd ogmapper
+        
+        # Install lib and sources from WFA2
+        cp -r WFA2-lib/{wavefront,bindings,system,utils,alignment} .
+        cp -r WFA2-lib/{wavefront,system,utils,alignment} wavefront/
+        # here MAC-X86 is a "fake" name but still works.
+        mkdir -p lib/WFA2/MAC-X86/
+        cp -r WFA2-lib/lib/* lib/WFA2/MAC-X86/
+
+        #Edit configuration file to specify release binary
+        nano nbproject/Makefile-impl.mk
+        # Replace line ~30 ||| DEFAULTCONF=Debug
+        # with this line   ||| DEFAULTCONF=Release
+
+        #Edit configuration file to update compilation flags.
+        nano nbproject/Makefile-Release.mk
+            # Replace line ~72 ||| CFLAGS=-std=c++11
+            # with this line   ||| CFLAGS=-I. -std=c++11
+            # Replace line ~75 ||| CCFLAGS=-std=c++11
+            # with this line   ||| CCFLAGS=-I. -std=c++11
+            # Replace line ~76 ||| CXXFLAGS=-std=c++11
+            # with this line   ||| CXXFLAGS=-I. -std=c++11
+        
+        make clean
+        make
+
+        #The binary should be in the folder dist/Release/GNU.MacOSX/
+        #So the next command should give you the help page.
+        ./dist/Release/GNU.MacOSX/ogmapper ⁠
+
 
 # Introduction to Encodings, Guiders, Keys, and Mapping functions
 The first step to map or count reads is generating an index of the reference genome. For this task, ogMapper introduced some concepts and also used novel explorative functions. ogMapper does not index all possible DNA subsequences. It first sweeps the DNA sequence until a specific sequence pattern is found; this pattern is known as a "guide". There are two guiders implemented up to now. Once a guide is found, the following DNA sequence of length k (provided by -k argument) is used to build a key, which will be indexed. The key is a binary representation of the DNA sequence, which is provided by an encoding function. There are four encoding functions implemented so far. Once a guide-key is processed, the DNA sweeping continues after the last guide until the whole sequence has been analyzed. In index-time all keys generated from all chromosomes are included in the index file as seed keys. In mapping-time, the keys generated from reads are used to search possible matches in the index. If the guide pattern is not found after L nt, an exception ocurrs indexing following DNA sequences as keys and skipping S nt. This process is better documented in the manuscript. The L parameter can be specified in guiders files as shown below.
