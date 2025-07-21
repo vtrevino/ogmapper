@@ -160,7 +160,7 @@ We assume WFA2 library has already been compiled.
 
         #Download Reads from Genome in a Bottle:
         curl https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/U0a_CGATGT_L001_R1_001.fastq.gz --output U0a_R1.fq.gz
-https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/U0a_CGATGT_L001_R2_001.fastq.gz --output U0a_R2.fq.gz        
+        curl https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/U0a_CGATGT_L001_R2_001.fastq.gz --output U0a_R2.fq.gz        
 
         #Mapping:
         ./dist/Release/GNU-MacOSX/ogmapper map -s ×4s -t 4 -p 1 -i GRCh38.fa.gz gTplXYXt_eBwat1gc0.ogi -o aln.sam -2 U0a_R1_001.fq.gz U0a_R2.fq.gz
