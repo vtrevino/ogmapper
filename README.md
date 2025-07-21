@@ -112,31 +112,31 @@ The prerequisite is to **install Termux** from Play Store. This was installed on
 We tested compiling ogMapper on an Android Mobile Phone (OnePlus 5T, ONEPLUS A5010) with 6GB RAM free (2.6GB used). Memory can be checked using the command "free" within Termux. We also tested compiling ogMapper on a Android tablet Samsung (XXXX), with 3 GB RAM.
 We assume WFA2 library has already been compiled.
 
-        # Compile WFA2 in Android:
+        # Compile ogMapper in Android:
         cd ~
         git clone https://github.com/vtrevino/ogmapper
         cd ogmapper
         
-        # Install lib and sources from WFA2
+        # Install lib and sources from recently compiled WFA2
         cp -r WFA2-lib/{wavefront,bindings,system,utils,alignment} .
         cp -r WFA2-lib/{wavefront,system,utils,alignment} wavefront/
-        # here MAC-X86 is a "fake" name but still works.
+        # here MAC-X86 is a "fake" folder name but still works.
         mkdir -p lib/WFA2/MAC-X86/
         cp -r WFA2-lib/lib/* lib/WFA2/MAC-X86/
 
-        #Edit configuration file to specify release binary
+        #Edit the configuration file to specify the release binary
         nano nbproject/Makefile-impl.mk
         # Replace line ~30 ||| DEFAULTCONF=Debug
         # with this line   ||| DEFAULTCONF=Release
 
-        #Edit configuration file to update compilation flags.
+        #Edit the configuration file to update compilation flags
         nano nbproject/Makefile-Release.mk
-            # Replace line ~72 ||| CFLAGS=-std=c++11
-            # with this line   ||| CFLAGS=-I. -std=c++11
-            # Replace line ~75 ||| CCFLAGS=-std=c++11
-            # with this line   ||| CCFLAGS=-I. -std=c++11
-            # Replace line ~76 ||| CXXFLAGS=-std=c++11
-            # with this line   ||| CXXFLAGS=-I. -std=c++11
+        # Replace line ~72 ||| CFLAGS=-std=c++11
+        # with this line   ||| CFLAGS=-I. -std=c++11
+        # Replace line ~75 ||| CCFLAGS=-std=c++11
+        # with this line   ||| CCFLAGS=-I. -std=c++11
+        # Replace line ~76 ||| CXXFLAGS=-std=c++11
+        # with this line   ||| CXXFLAGS=-I. -std=c++11
         
         make clean
         make
@@ -144,6 +144,9 @@ We assume WFA2 library has already been compiled.
         #The binary should be in the folder dist/Release/GNU.MacOSX/
         #So the next command should give you the help page.
         ./dist/Release/GNU.MacOSX/ogmapper ⁠
+        
+        #From here the next steps are index a genome and map reads.
+        #Remember to use the flag -m 1 in ogmapper if your device is short in memory.
 
 
 # Introduction to Encodings, Guiders, Keys, and Mapping functions
