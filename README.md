@@ -87,7 +87,7 @@ If you have problems with LIBOMP you may need one of the compile flags: "-lomp",
 
 
 ### Compiling WFA2 from https://github.com/smarco/WFA2-lib
-Follow the instructions provided in WFA2-lib.
+Follow the instructions provided in WFA2-lib or the above instructions if the device is Android.
 
 ## Compiling ogMapper
 
