@@ -145,15 +145,30 @@ We assume WFA2 library has already been compiled.
         #So the next command should give you the help page.
         ./dist/Release/GNU.MacOSX/ogmapper ⁠
         
-        #From here the next steps are index a genome and map reads.
-        #Remember to use the flag -m 1 in ogmapper if your device is short in memory.
+        #From here, the next steps are to index a genome and to map reads.
+        #Remember using the flag -m 1 at indexing if your device is short on memory.
+        
+        # Download HG38 genome...
+        curl https://ftp.ensembl.org/pub/release-114/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz --output GRCh38.fa.gz
+        #Index:
+        ./dist/Release/GNU-MacOSX/ogmapper index -k 24 -e BitwiseAT1GCOEncoding -g TupleGuider:guiders/tuple/XYX-Tuple-og.txt -m 0 GRCh38.fa.gz
 
         #On the device [OnePlus 5T, ONEPLUS A5010] 
         #5GB RAM, 8 Reported Cores (according to nproc)
-        #*Indexing HG38 genome*:
+        #Indexing HG38 genome:
         # 8 min + 25 sec, 87% CPU use, 2.7GB RAM used, flag -m 0.
-        #*Mapping 4M 150nt Paired-Reads*: -t 4 -p 1 -s x4s
-        #2 min + 16 sec, 433% CPU usage, +4 threads (-t 4), 2.7GB RAM used.
+
+        #Download Reads from Genome in a Bottle:
+        curl https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/U0a_CGATGT_L001_R1_001.fastq.gz --output U0a_R1.fq.gz
+https://ftp.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/U0a_CGATGT_L001_R2_001.fastq.gz --output U0a_R2.fq.gz        
+
+        #Mapping:
+        ./dist/Release/GNU-MacOSX/ogmapper map -s ×4s -t 4 -p 1 -i GRCh38.fa.gz gTplXYXt_eBwat1gc0.ogi -o aln.sam -2 U0a_R1_001.fq.gz U0a_R2.fq.gz
+        
+        #On the device [OnePlus 5T, ONEPLUS A5010] 
+        #5GB RAM, 8 Reported Cores (according to nproc)
+        #Mapping 4,000,000 150nt Paired-Reads (4M Reads):
+        #2 min + 16 sec, 433% CPU usage, 2.7GB RAM used.
         #96.9% Reads mapped.
 
 # Introduction to Encodings, Guiders, Keys, and Mapping functions
