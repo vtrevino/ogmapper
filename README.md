@@ -109,7 +109,7 @@ Assuming c/c++ compilers are installed and WFA2 library is copied in the ogMappe
 
 ### Compiling ogMapper on Android
 The prerequisite is to **install Termux** from Play Store. This was installed on WFA2 lib compilation, though.
-We tested compiling ogMapper on an Android Mobile Phone (OnePlus 5T, ONEPLUS A5010) with 6GB RAM free (2.6GB used). Memory can be checked using the command "free" within Termux. We also tested compiling ogMapper on an Android tablet Samsung (XXXX), with 3 GB RAM.
+We tested compiling ogMapper on an Android Mobile Phone (OnePlus 5T, ONEPLUS A5010) with 6GB RAM (2.6GB used). Memory can be checked using the command "free" within Termux. We also tested compiling ogMapper on an Android tablet Samsung (XXXX), with 3 GB RAM.
 We assume WFA2 library has already been compiled.
 
         # Compile ogMapper in Android:
