@@ -109,7 +109,7 @@ Assuming c/c++ compilers are installed and WFA2 library is copied in the ogMappe
 
 ### Compiling ogMapper on Android
 The prerequisite is to **install Termux** from Play Store. This was installed on WFA2 lib compilation, though.
-We tested compiling ogMapper on an Android Mobile Phone (OnePlus 5T, ONEPLUS A5010) with 6GB RAM free (2.6GB used). Memory can be checked using the command "free" within Termux. We also tested compiling ogMapper on a Android tablet Samsung (XXXX), with 3 GB RAM.
+We tested compiling ogMapper on an Android Mobile Phone (OnePlus 5T, ONEPLUS A5010) with 6GB RAM free (2.6GB used). Memory can be checked using the command "free" within Termux. We also tested compiling ogMapper on an Android tablet Samsung (XXXX), with 3 GB RAM.
 We assume WFA2 library has already been compiled.
 
         # Compile ogMapper in Android:
@@ -148,6 +148,13 @@ We assume WFA2 library has already been compiled.
         #From here the next steps are index a genome and map reads.
         #Remember to use the flag -m 1 in ogmapper if your device is short in memory.
 
+        #On the device [OnePlus 5T, ONEPLUS A5010] 
+        #5GB RAM, 8 Reported Cores (according to nproc)
+        #*Indexing HG38 genome*:
+        # 8 min + 25 sec, 87% CPU use, 2.7GB RAM used, flag -m 0.
+        #*Mapping 4M 150nt Paired-Reads*: -t 4 -p 1 -s x4s
+        #2 min + 16 sec, 433% CPU usage, +4 threads (-t 4), 2.7GB RAM used.
+        #96.9% Reads mapped.
 
 # Introduction to Encodings, Guiders, Keys, and Mapping functions
 The first step to map or count reads is generating an index of the reference genome. For this task, ogMapper introduced some concepts and also used novel explorative functions. ogMapper does not index all possible DNA subsequences. It first sweeps the DNA sequence until a specific sequence pattern is found; this pattern is known as a "guide". There are two guiders implemented up to now. Once a guide is found, the following DNA sequence of length k (provided by -k argument) is used to build a key, which will be indexed. The key is a binary representation of the DNA sequence, which is provided by an encoding function. There are four encoding functions implemented so far. Once a guide-key is processed, the DNA sweeping continues after the last guide until the whole sequence has been analyzed. In index-time all keys generated from all chromosomes are included in the index file as seed keys. In mapping-time, the keys generated from reads are used to search possible matches in the index. If the guide pattern is not found after L nt, an exception ocurrs indexing following DNA sequences as keys and skipping S nt. This process is better documented in the manuscript. The L parameter can be specified in guiders files as shown below.
