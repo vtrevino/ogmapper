@@ -496,3 +496,19 @@ Output (~107 M reads, 7 min 46 secs in Mac M3 Max, 380 MB ram):
 3) transcripts-count.txt (not implemented)
 
 RNA-Seq files (reads) can be downloaded from <a href="https://www.nist.gov/programs-projects/genome-bottle" target="_blank">Genome In A Bottle</a> project, in this <a href="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_RNAseq/AshkenazimTrio/HG002_NA24385_son/Google_Illumina/mRNA/reads/" target="_blank">folder</a>.
+
+An example of the gene-count.txt is as follows:
+
+        #Seq    Comment Name    Eff Size        Reads   TPM (pseudo)
+        1       Chr=1|NC_060925.1|1|33168388|33182706|-|5 ex|1 tr       A3GALT2 1023    39      33.1089
+        2       Chr=1|NC_060925.1|1|12260261|12272876|+|4 ex|2 tr       AADACL3 4055    32      6.8535
+        3       Chr=1|NC_060925.1|1|12188232|12211227|+|5 ex|2 tr       AADACL4 2438    61      21.7296
+        4       Chr=1|NC_060925.1|1|93841050|93969344|-|50 ex|2 tr      ABCA4   7328    1059    125.5067
+        ...
+
+An example of the exon-count.txt file:
+
+        Row     Seq     Comment Name    Exon    Coordinate      Strand  Size    Reads   TPM (pseudo)    GeneReads
+        1       1       Chr=1|NC_060925.1|1|33168388|33182706|-|5 ex|1 tr       A3GALT2 0       1:33168388-33169075     (-)     688     36      1.9293  39
+        2       1       Chr=1|NC_060925.1|1|33168388|33182706|-|5 ex|1 tr       A3GALT2 1       1:33173657-33173794     (-)     138     3       0.8015  39
+        3       1       Chr=1|NC_060925.1|1|33168388|33182706|-|5 ex|1 tr       A3GALT2 2       1:33174106-33174195     (-)     90      2       0.8194  39
