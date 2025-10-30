@@ -31,7 +31,7 @@ DEFAULTCONF=Debug
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Debug Release Release_Intel_CLANG Release_M_CLANG Release_Win_CLANG Release_Native_GNU Release_Linux_CLANG 
+ALLCONFS=Debug Release Release_Intel_CLANG Release_M_CLANG Release_Win_CLANG Release_Native_GNU Release_Linux_CLANG Bioconda
 
 
 # build
