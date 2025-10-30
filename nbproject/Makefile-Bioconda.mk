@@ -23,7 +23,7 @@ AS=as
 # Macros
 CND_PLATFORM=GNU-MacOSX
 CND_DLIB_EXT=dylib
-CND_CONF=Release_Native_GNU
+CND_CONF=Bioconda
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -73,7 +73,7 @@ CFLAGS=-std=c++11
 
 # CC Compiler Flags
 CCFLAGS=-std=c++11
-CXXFLAGS=-std=c++11
+CXXFLAGS=-std=c++11 -pthread -include cstring -I${PREFIX}/include/wfa2lib
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -82,17 +82,21 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=lib/WFA2/MAC-X86/libwfacpp.a
+## Eliminada Eugenio & Vic
+##LDLIBSOPTIONS=lib/WFA2/MAC-X86/libwfacpp.a
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ogmapper
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ogmapper: lib/WFA2/MAC-X86/libwfacpp.a
+## Eliminada Eugenio & Vic
+## ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ogmapper: lib/WFA2/MAC-X86/libwfacpp.a
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ogmapper: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ogmapper ${OBJECTFILES} ${LDLIBSOPTIONS} -lz -lomp
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ogmapper ${OBJECTFILES} -lz
+## Eugenio & Vic, old:
+##	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ogmapper ${OBJECTFILES} ${LDLIBSOPTIONS} -lz -lomp
 
 ${OBJECTDIR}/BGZF.o: BGZF.cpp
 	${MKDIR} -p ${OBJECTDIR}
