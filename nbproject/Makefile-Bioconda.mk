@@ -69,10 +69,10 @@ OBJECTFILES= \
 
 
 # C Compiler Flags
-CFLAGS=-std=c++11
+CFLAGS=-std=c++11 -pthread -I${PREFIX}/include/wfa2lib
 
 # CC Compiler Flags
-CCFLAGS=-std=c++11
+CCFLAGS=-std=c++11 -pthread -I${PREFIX}/include/wfa2lib
 CXXFLAGS=-std=c++11 -pthread -include cstring -I${PREFIX}/include/wfa2lib
 
 # Fortran Compiler Flags
