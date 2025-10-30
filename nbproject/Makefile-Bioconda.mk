@@ -72,8 +72,13 @@ OBJECTFILES= \
 CFLAGS=-std=c++11 -pthread -I${PREFIX}/include/wfa2lib
 
 # CC Compiler Flags
+## Edited by Eugenio & Vic
 CCFLAGS=-std=c++11 -pthread -I${PREFIX}/include/wfa2lib
 CXXFLAGS=-std=c++11 -pthread -include cstring -I${PREFIX}/include/wfa2lib
+LOMPFLAG=
+LDFLAGS=-L${PREFIX}/lib/ -lwfa2cpp -Wl,-rpath,${PREFIX}/lib/ ${LOMPFLAG}
+## LOMPFLAG SHOULD BE "-lomp" in MAC => $([[ "$OSTYPE" == "darwin"* ]] && echo "-lomp")
+
 
 # Fortran Compiler Flags
 FFLAGS=
