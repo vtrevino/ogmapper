@@ -8,6 +8,7 @@ The common process starts by creating an index file (*.ogi), then mapping short 
 ogmapper is written in c++, originally developed in NetBeans 13 on an Intel Mac. I provide binaries for selected operating systems and source files for compilation.
 
 # Binaries
+From release 1.0.2
 - MacOS/Intel : <a href="releases/download/1.0.2/ogmapper-mac-intel-clang">ogmapper-mac-intel-clang</a> or <a href="releases/download/1.0.2/ogmapper-mac-intel-gnu">ogmapper-mac-intel-gnu</a>
 - MacOS/M : <a href="releases/download/1.0.2/ogmapper-mac-m-clang">ogmapper-mac-m-clang</a>
 - Linux/x86 : <a href="releases/download/1.0.2/ogmapper-linux-x86">ogmapper-linux-x86</a>
@@ -16,6 +17,17 @@ ogmapper is written in c++, originally developed in NetBeans 13 on an Intel Mac.
 
 # Installation
 Download the binary and test it without any arguments. If it works, it should display the options as shown in the section [Running ogMapper] below. If you want to build from source, be my guest and follow the next sections.
+
+# Installation from CONDA
+Needs conda installed. To install conda see <a href="https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html">Conda Install Pages</a>.
+
+        # OPTIONAL: TO INSTALL CONDA IN Linux/Mac
+        wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+        bash Miniforge3-$(uname)-$(uname -m).sh
+        # open a new terminal to update paths and environment before installing ogmapper
+        
+        # CONDA ALREADY INSTALLED:
+        conda install -c bioconda ogmapper
 
 # Compilation
 If one of the above binaries runs in your system, I recommend using it if they do not cause problems. Still, if you prefer to build it yourself, two components need compilation, the WFA library and ogMapper. Once WFA library has been built, we may proceed to compile ogMapper.
