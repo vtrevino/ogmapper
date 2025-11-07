@@ -8,10 +8,10 @@ The common process starts by creating an index file (*.ogi), then mapping short 
 ogmapper is written in c++, originally developed in NetBeans 13 on an Intel Mac. I provide binaries for selected operating systems and source files for compilation.
 
 # Binaries
-- MacOS/Intel : <a href="ogmapper-mac-intel-clang">ogmapper-mac-intel-clang</a> or <a href="ogmapper-mac-intel-gnu">ogmapper-mac-intel-gnu</a>
-- MacOS/M : <a href="ogmapper-mac-m-clang">ogmapper-mac-m-clang</a>
-- Linux/x86 : <a href="ogmapper-linux-x86">ogmapper-linux-x86</a>
-- Android : <a href="ogmapper-aarch64-mobile-android">ogmapper-aarch64-mobile-android</a>
+- MacOS/Intel : <a href="releases/download/1.0.2/ogmapper-mac-intel-clang">ogmapper-mac-intel-clang</a> or <a href="releases/download/1.0.2/ogmapper-mac-intel-gnu">ogmapper-mac-intel-gnu</a>
+- MacOS/M : <a href="releases/download/1.0.2/ogmapper-mac-m-clang">ogmapper-mac-m-clang</a>
+- Linux/x86 : <a href="releases/download/1.0.2/ogmapper-linux-x86">ogmapper-linux-x86</a>
+- Android : <a href="oreleases/download/1.0.2/ogmapper-aarch64-mobile-android">ogmapper-aarch64-mobile-android</a>
 - Windows :(
 
 # Installation
