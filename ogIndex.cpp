@@ -129,9 +129,9 @@ ogIndex::ogIndex() {
 }
 
 void freef(void *p, char msg) {
-    fprintf(stderr, "<%c", msg); fflush(stderr);
+    //fprintf(stderr, "<%c", msg); fflush(stderr);
     free(p);
-    fprintf(stderr, ">"); fflush(stderr);
+    //fprintf(stderr, ">"); fflush(stderr);
 }
 
 ogIndex::~ogIndex() {
@@ -1502,7 +1502,7 @@ void ogIndex::count(char *pGTFfileName, char *pSourceFileName1, char *pSourceFil
     fprintf(stderr, "\n");
     printf_FileOperationFile("Saving gene counts", genesCountFile);
     ofile = fopen(genesCountFile, "w");
-    fprintf(ofile, "#Seq\tComment\tName\tEff Size\tReads\tTPM (pseudo)\n"); fflush(ofile);
+    fprintf(ofile, "Seq\tComment\tName\tEff Size\tReads\tTPM (pseudo)\n"); fflush(ofile);
     //for (i=0; i < countInfo.nGenes; i++) counts += countInfo.pGeneReads[i];
     for (i=0; i < countInfo.nGenes; i++) {
         pChr = pGenome->getChromosome(i);
@@ -1514,7 +1514,7 @@ void ogIndex::count(char *pGTFfileName, char *pSourceFileName1, char *pSourceFil
         pChr = pGenome->getChromosome(i);
         
         readByLen = ((double) countInfo.pGeneReads[i] / (double) pChr->effectiveSize);
-        tpm = (double) (readByLen * 1000000) / sumReadByLen;
+            tpm = (double) (readByLen * 1000000) / sumReadByLen;
         // Write
             fprintf(ofile, "%u\t%s\t%s\t%u\t%u\t%.4f\n", i+1, pChr->comment, pChr->name, pChr->effectiveSize, countInfo.pGeneReads[i], tpm);
             geneCount++;
@@ -1558,6 +1558,7 @@ void ogIndex::count(char *pGTFfileName, char *pSourceFileName1, char *pSourceFil
         printf_FileOperationFile("Saving transcript counts", transcriptsCountFile);
         ofile = fopen(transcriptsCountFile, "w");
         fprintf(ofile, "Row\tSeq\tComment\tName\tExon\tCoordinate\tStrand\tSize\tReads\n");
+        fprintf(ofile, "** TRANSCRIPT-LEVEL COUNTS HAS NOT BEEN IMPLEMENTED YET **\n");
         fclose(ofile);
         printf_FileOperationDone();        
     }

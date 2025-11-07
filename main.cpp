@@ -90,6 +90,113 @@ unsigned long long getTotalSystemMemory()
     return pages * page_size;
 }
 
+void printHelp() {
+    fprintf(stderr, "Usage: Indexing, Mapping, and Counting sequencing reads in genomes.\n");
+    fprintf(stderr,"\n"); 
+    fprintf(stderr,"INDEXING:\n"); 
+    fprintf(stderr,"\n"); 
+    fprintf(stderr, "    ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]\n");
+    fprintf(stderr, "        [-m 0/1] [-gtf <file>] [-ogx <ogx-prefix-file-name>]\n");
+    fprintf(stderr, "        [-o <index-file-no-ext>] <genome-fasta.gz>\n");
+    fprintf(stderr, "\n"); 
+    fprintf(stderr, "        Prepare files for mapping (step 1) or counting (step 2).\n"); 
+    fprintf(stderr, "           Encodings (-e option):\n");
+    fprintf(stderr, "               BitwiseAT1GC0Encoding\n");
+    fprintf(stderr, "               PlainEncoding\n");
+    fprintf(stderr, "               GappedBitwiseAT1GC0Encoding\n");
+    fprintf(stderr, "               SwapBitwiseAT1GC0Encoding\n");
+    fprintf(stderr, "               HPCEncoding\n");
+    fprintf(stderr, "           Guiders (-g option):\n");
+    fprintf(stderr, "               StateMachineGuider:<state-file>\n");
+    fprintf(stderr, "               DefaultGuider\n");
+    fprintf(stderr, "               TupleGuider:<tuple-file>\n");
+    fprintf(stderr, "           GTF/Counting (-gtx option used after index-GTF):\n");
+    fprintf(stderr, "               Enables index for pseudo-counting mode.\n");
+    fprintf(stderr, "               File name used to generate index-GTF.\n");
+    fprintf(stderr, "               Must be provided for counting.\n");
+    fprintf(stderr, "\n");
+    fprintf(stderr, "    ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>\n");
+    fprintf(stderr,"\n"); 
+    fprintf(stderr,"         Prepare files for pseudo-counting (step 1).\n"); 
+    fprintf(stderr,"         Output:\n"); 
+    fprintf(stderr,"         - <genome>-GTF.fq.gz file.\n"); 
+    //fprintf(stderr,"         - <gtf>.genes.ogx file.\n"); 
+    fprintf(stderr,"         - <gtf>.exons.ogx file.\n"); 
+    fprintf(stderr,"         - <gtf>.transcripts.ogx file.\n"); 
+    fprintf(stderr, "\n");
+    fprintf(stderr,"MAPPING:\n"); 
+    fprintf(stderr,"\n"); 
+    fprintf(stderr,"     ogmapper map [-k <keysize>] [-s <sched>] [-q <nQueue>] [-UC <0/1>]\n");  
+    fprintf(stderr,"         [-t <nThreads>] [-p <0/1>] -i <index-file> [-d <n>]\n");  
+    fprintf(stderr,"         [-maxreadlen <length>] [-maxreads <n>] [-startread <n>]\n");  
+    fprintf(stderr,"         [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]\n"); 
+    fprintf(stderr,"         [-1 <reads.gz>] [-2 <read-1.gz> <read-2.gz>]\n"); 
+    fprintf(stderr,"\n"); 
+    fprintf(stderr,"         Perform read mapping (step 2).\n"); 
+    fprintf(stderr,"         NEEDS an index generated with ogmapper index (step 1).\n"); 
+    fprintf(stderr, "\n");
+    fprintf(stderr,"COUNTING:\n"); 
+    fprintf(stderr,"\n"); 
+    fprintf(stderr,"     ogmapper count [-k <keysize>] [-s <sched>] [-q <nQueue>] [-UC <0/1>]\n");  
+    fprintf(stderr,"         [-t <nThreads>] [-p <0/1>] -i <complete-index-file> [-d <n>]\n");  
+    fprintf(stderr,"         [-maxreadlen <length>] [-maxreads <n>] [-startread <n>]\n");  
+    fprintf(stderr,"         [-genes <outfile>] [-exons <outfile>] [-transcripts <outfile>]\n");  
+    fprintf(stderr,"         [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]\n"); 
+    fprintf(stderr,"         [-1 <ogx> <reads.gz>] [-2 <ogx> <read-1.gz> <read-2.gz>]\n"); 
+    fprintf(stderr,"\n"); 
+    fprintf(stderr,"         Perform read pseudo-counting (step 3).\n"); 
+    fprintf(stderr,"         NEEDS a indexes generated with ogmapper index-GTF (step 1).\n"); 
+    fprintf(stderr,"         Also NEEDS an index generated with ogmapper index with -gtf option (step 2).\n"); 
+    fprintf(stderr, "\n");
+    fprintf(stderr, "OPTIONS:\n");
+    fprintf(stderr, "        -o      Output file. Should appear before -1/-2 parameter.\n");
+    fprintf(stderr, "                File may end with .gz but is quite slower.\n");
+    fprintf(stderr, "        -k      Key size, in nt depending on the encoding.\n");
+    fprintf(stderr, "        -m      Enables low memory access (-m 1) to save memory when indexing.\n");
+    fprintf(stderr, "                Default to 0.\n");
+    fprintf(stderr, "        -s      'schedule' functions to call for read mappings.\n");
+    fprintf(stderr, "        -UC     Force uppercase reads.\n");
+    fprintf(stderr, "        -kd     Specifies key distance.\n");
+    fprintf(stderr, "        -q      Queue size for reads. Default 10000. Removal 0. Recommended >= 1000.\n");
+    fprintf(stderr, "        -t      Threads used for processing.\n");
+    fprintf(stderr, "        -f      Generate one output file per thread.\n");
+    fprintf(stderr, "        -p      'Production' mode -p 1 (faster, default). Production mode 0\n");
+    fprintf(stderr, "                designed to test scheduled mapping functions and times.\n");
+    fprintf(stderr, "        -kseq n Use of the kseq.h library  (n=1, default) or customized (n=0) for\n");
+    fprintf(stderr, "                reading reads. The customized reader can be faster in some systems.\n");
+    fprintf(stderr, "        -gtf    Specify file for regions 'pseudo'-counting.\n");
+    fprintf(stderr, "        -genes  Output file for gene counting.\n");
+    fprintf(stderr, "        -exons  Output file for exon counting.\n");
+    fprintf(stderr, "        -transcripts Output file for transcript counting.\n");
+    fprintf(stderr, "        -keycount Sets minimum key counts.\n");
+    fprintf(stderr, "        -scorecount Sets minimum score counts.\n");
+    fprintf(stderr, "        -tie1   Sets tie 1 parameter.\n");
+    fprintf(stderr, "        -prepare Do not prepare nor process reads. Used for checking reading times.\n");
+    fprintf(stderr, "        -process Do not process reads. Used for checking reading and preparing times.\n");
+    //fprintf(stderr, "        -b      Sets buffer size for reads (with 6%% auto growing).\n");
+    fprintf(stderr, "        -d <n>   Delete key positions more frequent than <n>. This helps to avoid\n");
+    fprintf(stderr, "                 wasting time searching over large populated keys.\n");
+    fprintf(stderr, "        -unmapped Activate unmapping mode in which unmapped reads are stored in\n");
+    fprintf(stderr, "                 corresponding files adding '.unmap' in RAW/TEXT/PLAIN format.\n");
+    fprintf(stderr, "                 These reads will not be included in the .sam output.\n");
+    fprintf(stderr, "                 This helps to use a second tool for unmapped reads.\n");
+    fprintf(stderr, "                 The mode '-unmapped 1' specify that consider pair unmapped if any read\n");
+    fprintf(stderr, "                 is unmapped, and both reads are not included in sam output.\n");
+    fprintf(stderr, "                 The mode '-unmapped 2' needs both reads unmapped, otherwise both reads\n");
+    fprintf(stderr, "                 will be included in sam output.\n");
+    fprintf(stderr, "                 The mode '-unmapped 3' is similar to 1 but not generating .unmap file.\n");
+    fprintf(stderr, "                 The mode '-unmapped 4' is similar to 2 but not generating .unmap files.\n");
+    fprintf(stderr, "        -maxreads Maximum number of reads to be processed.\n");
+    fprintf(stderr, "        -startread Starting read to be processed.\n");
+    fprintf(stderr, "        -maxreadlen Read length used to estimate initial memory allocations.\n");
+    fprintf(stderr, "        -R       Read group header to add in sam output. Within this, the ID:<id>\n");
+    fprintf(stderr, "                 will be used in every read. Example: ’@RG\tID:foo\tSM:bar\tPL:ILLUMINA’.\n");
+    fprintf(stderr, "                 This will add the above as header and the tag 'RG:Z:foo' to every read.\n");
+    fprintf(stderr, "                 In the case that ID is numeric, 'RG:i:0' will be added instead.\n");
+    fprintf(stderr, "        -bs <n>  Sets buffer size sam output file.\n");
+    fprintf(stderr, "\n");
+    
+}
 
 int main(int argc, char *argv[]) {
 
@@ -103,112 +210,9 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "ogMapper version %s\n", OGMAPPER_VERSION);
     fprintf(stderr, "Reported Memory=%lld, argc=%d\n", totalRam, argc);
     
-    if (argc < 3) {  
-        fprintf(stderr, "Usage: Indexing, Mapping, and Counting sequencing reads in genomes.\n");
-        fprintf(stderr,"\n"); 
-        fprintf(stderr,"INDEXING:\n"); 
-        fprintf(stderr,"\n"); 
-        fprintf(stderr, "    ogmapper index [-k <keysize>] [-g <guider>] [-e <encoding>]\n");
-        fprintf(stderr, "        [-m 0/1] [-gtf <file>] [-ogx <ogx-prefix-file-name>]\n");
-        fprintf(stderr, "        [-o <index-file-no-ext>] <genome-fasta.gz>\n");
-        fprintf(stderr, "\n"); 
-        fprintf(stderr, "        Prepare files for mapping (step 1) or counting (step 2).\n"); 
-        fprintf(stderr, "           Encodings (-e option):\n");
-        fprintf(stderr, "               BitwiseAT1GC0Encoding\n");
-        fprintf(stderr, "               PlainEncoding\n");
-        fprintf(stderr, "               GappedBitwiseAT1GC0Encoding\n");
-        fprintf(stderr, "               SwapBitwiseAT1GC0Encoding\n");
-        fprintf(stderr, "               HPCEncoding\n");
-        fprintf(stderr, "           Guiders (-g option):\n");
-        fprintf(stderr, "               StateMachineGuider:<state-file>\n");
-        fprintf(stderr, "               DefaultGuider\n");
-        fprintf(stderr, "               TupleGuider:<tuple-file>\n");
-        fprintf(stderr, "           GTF/Counting (-gtx option used after index-GTF):\n");
-        fprintf(stderr, "               Enables index for pseudo-counting mode.\n");
-        fprintf(stderr, "               File name used to generate index-GTF.\n");
-        fprintf(stderr, "               Must be provided for counting.\n");
-        fprintf(stderr, "\n");
-        fprintf(stderr, "    ogmapper index-GTF [-o <index-names>] <.gtf[.gz]|.gff[.gz]> <genome.fa.gz>\n");
-        fprintf(stderr,"\n"); 
-        fprintf(stderr,"         Prepare files for pseudo-counting (step 1).\n"); 
-        fprintf(stderr,"         Output:\n"); 
-        fprintf(stderr,"         - <genome>-GTF.fq.gz file.\n"); 
-        fprintf(stderr,"         - <gtf>.genes.ogx file.\n"); 
-        fprintf(stderr,"         - <gtf>.exons.ogx file.\n"); 
-        fprintf(stderr,"         - <gtf>.transcripts.ogx file.\n"); 
-        fprintf(stderr, "\n");
-        fprintf(stderr,"MAPPING:\n"); 
-        fprintf(stderr,"\n"); 
-        fprintf(stderr,"     ogmapper map [-k <keysize>] [-s <sched>] [-q <nQueue>] [-UC <0/1>]\n");  
-        fprintf(stderr,"         [-t <nThreads>] [-p <0/1>] -i <index-file> [-d <n>]\n");  
-        fprintf(stderr,"         [-maxreadlen <length>] [-maxreads <n>] [-startread <n>]\n");  
-        fprintf(stderr,"         [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]\n"); 
-        fprintf(stderr,"         [-1 <reads.gz>] [-2 <read-1.gz> <read-2.gz>]\n"); 
-        fprintf(stderr,"\n"); 
-        fprintf(stderr,"         Perform read mapping (step 2).\n"); 
-        fprintf(stderr,"         NEEDS an index generated with ogmapper index (step 1).\n"); 
-        fprintf(stderr, "\n");
-        fprintf(stderr,"COUNTING:\n"); 
-        fprintf(stderr,"\n"); 
-        fprintf(stderr,"     ogmapper count [-k <keysize>] [-s <sched>] [-q <nQueue>] [-UC <0/1>]\n");  
-        fprintf(stderr,"         [-t <nThreads>] [-p <0/1>] -i <complete-index-file> [-d <n>]\n");  
-        fprintf(stderr,"         [-maxreadlen <length>] [-maxreads <n>] [-startread <n>]\n");  
-        fprintf(stderr,"         [-genes <outfile>] [-exons <outfile>] [-transcripts <outfile>]\n");  
-        fprintf(stderr,"         [-o <out.sam>|stdout] [-kseq <0/1>] [-unmapped 0/1/2/3/4] [-R <str>]\n"); 
-        fprintf(stderr,"         [-1 <ogx> <reads.gz>] [-2 <ogx> <read-1.gz> <read-2.gz>]\n"); 
-        fprintf(stderr,"\n"); 
-        fprintf(stderr,"         Perform read pseudo-counting (step 3).\n"); 
-        fprintf(stderr,"         NEEDS a indexes generated with ogmapper index-GTF (step 1).\n"); 
-        fprintf(stderr,"         Also NEEDS an index generated with ogmapper index with -gtf option (step 2).\n"); 
-        fprintf(stderr, "\n");
-        fprintf(stderr, "OPTIONS:\n");
-        fprintf(stderr, "        -o      Output file. Should appear before -1/-2 parameter.\n");
-        fprintf(stderr, "                File may end with .gz but is quite slower.\n");
-        fprintf(stderr, "        -k      Key size, in nt depending on the encoding.\n");
-        fprintf(stderr, "        -m      Enables low memory access (-m 1) to save memory when indexing.\nDefault 0.\n");
-        fprintf(stderr, "                Default to 0.\n");
-        fprintf(stderr, "        -s      'schedule' functions to call for read mappings.\n");
-        fprintf(stderr, "        -UC     Force uppercase reads.\n");
-        fprintf(stderr, "        -kd     Specifies key distance.\n");
-        fprintf(stderr, "        -q      Queue size for reads. Default 10000. Removal 0. Recommended >= 1000.\n");
-        fprintf(stderr, "        -t      Threads used for processing.\n");
-        fprintf(stderr, "        -f      Generate one output file per thread.\n");
-        fprintf(stderr, "        -p      'Production' mode -p 1 (faster, default). Production mode 0\n");
-        fprintf(stderr, "                designed to test scheduled mapping functions and times.\n");
-        fprintf(stderr, "        -kseq n Use of the kseq.h library  (n=1, default) or customized (n=0) for\n");
-        fprintf(stderr, "                reading reads. The customized reader can be faster in some systems.\n");
-        fprintf(stderr, "        -gtf    Specify file for regions 'pseudo'-counting.\n");
-        fprintf(stderr, "        -genes  Output file for gene counting.\n");
-        fprintf(stderr, "        -exons  Output file for exon counting.\n");
-        fprintf(stderr, "        -transcripts Output file for transcript counting.\n");
-        fprintf(stderr, "        -keycount Sets minimum key counts.\n");
-        fprintf(stderr, "        -scorecount Sets minimum score counts.\n");
-        fprintf(stderr, "        -tie1   Sets tie 1 parameter.\n");
-        fprintf(stderr, "        -prepare Do not prepare nor process reads. Used for checking reading times.\n");
-        fprintf(stderr, "        -process Do not process reads. Used for checking reading and preparing times.\n");
-        //fprintf(stderr, "        -b      Sets buffer size for reads (with 6%% auto growing).\n");
-        fprintf(stderr, "        -d <n>   Delete key positions more frequent than <n>. This helps to avoid\n");
-        fprintf(stderr, "                 wasting time searching over large populated keys.\n");
-        fprintf(stderr, "        -unmapped Activate unmapping mode in which unmapped reads are stored in\n");
-        fprintf(stderr, "                 corresponding files adding '.unmap' in RAW/TEXT/PLAIN format.\n");
-        fprintf(stderr, "                 These reads will not be included in the .sam output.\n");
-        fprintf(stderr, "                 This helps to use a second tool for unmapped reads.\n");
-        fprintf(stderr, "                 The mode '-unmapped 1' specify that consider pair unmapped if any read\n");
-        fprintf(stderr, "                 is unmapped, and both reads are not included in sam output.\n");
-        fprintf(stderr, "                 The mode '-unmapped 2' needs both reads unmapped, otherwise both reads\n");
-        fprintf(stderr, "                 will be included in sam output.\n");
-        fprintf(stderr, "                 The mode '-unmapped 3' is similar to 1 but not generating .unmap file.\n");
-        fprintf(stderr, "                 The mode '-unmapped 4' is similar to 2 but not generating .unmap files.\n");
-        fprintf(stderr, "        -maxreads Maximum number of reads to be processed.\n");
-        fprintf(stderr, "        -startread Starting read to be processed.\n");
-        fprintf(stderr, "        -maxreadlen Read length used to estimate initial memory allocations.\n");
-        fprintf(stderr, "        -R       Read group header to add in sam output. Within this, the ID:<id>\n");
-        fprintf(stderr, "                 will be used in every read. Example: ’@RG\tID:foo\tSM:bar\tPL:ILLUMINA’.\n");
-        fprintf(stderr, "                 This will add the above as header and the tag 'RG:Z:foo' to every read.\n");
-        fprintf(stderr, "                 In the case that ID is numeric, 'RG:i:0' will be added instead.\n");
-        fprintf(stderr, "        -bs <n>  Sets buffer size sam output file.\n");
-        fprintf(stderr, "\n");
-        return 1;  
+    if (argc < 3) {
+        printHelp();
+        return 0;  
     }
 
     ogIndex idx;
@@ -308,6 +312,14 @@ int main(int argc, char *argv[]) {
     
     
     
+    if (strcmp(argv[1], "help") == 0 ||
+        strcmp(argv[1], "-help") == 0 ||
+        strcmp(argv[1], "--help") == 0 ||
+        strcmp(argv[1], "-h") == 0 ||
+        strcmp(argv[1], "--h") == 0) {
+        printHelp();
+        return 0;
+    }
     
     
     if (strcmp(argv[1], "checksequences") == 0) {
@@ -366,10 +378,12 @@ int main(int argc, char *argv[]) {
     
     if (strcmp(argv[1], "checkkseq") == 0) {
         idx.checkKSEQ(argv[2]);
+        return 0;
     }
     
     if (strcmp(argv[1], "getChr20_22") == 0) {
-        idx.getChr20_22(argv[2+k]);
+        idx.getChr20_22(argv[2]);
+        return 0;
     }
     
     if (strcmp(argv[1], "testRep") == 0) {
@@ -404,6 +418,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Reduced CIGAR: /%s/\n",pCIGAR);        
         fprintf(stderr, "CIGAR referred size: %u\n", cigarro.totalSizeConsuming());
         fprintf(stderr, "CIGAR sum sizes: %u\n", cigarro.totalSize());
+        return 0;
     }
 
     if (strcmp(argv[1], "testStateMachine") == 0) {
@@ -414,6 +429,7 @@ int main(int argc, char *argv[]) {
         uint32_t maxLenNo;
         sscanf(argv[4], "%u", &maxLenNo);
         idx.testStateMachine(argv[3], argv[2], maxLenNo);
+        return 0;
     }
     
     if (strcmp(argv[1], "index-GTF") == 0) {
@@ -421,6 +437,7 @@ int main(int argc, char *argv[]) {
         char *gtfNames = NULL;
         if (strcmp(argv[k], "-o") == 0) { gtfNames = argv[k+1]; k += 2; }
         idx.indexFromGTF(argv[k], argv[k+1], gtfNames);
+        return 0;
     }
     
     if (strcmp(argv[1], "index") == 0) {

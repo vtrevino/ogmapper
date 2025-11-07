@@ -856,7 +856,7 @@ ogKey *ogReadKeyMapping::keyByOrderSize(char RC) {
 void *ogReadKeyMapping::getUsableMemory(uint64_t bytes) {
     if (bytes > sharedMemoryBytes) {
         uint64_t n = bytes - sharedMemoryBytes;
-        fprintf(stderr, "<ogRKM: Allocating %.1f Mb>", (float) n / (1024*1024)); fflush(stderr);
+        //fprintf(stderr, "<ogRKM: Allocating %.1f Mb>", (float) n / (1024*1024)); fflush(stderr);
         if (pMemory == NULL) {
             // First time, make sure it if full of zeros
             pMemory = calloc(bytes, 1);
