@@ -57,7 +57,7 @@ public:
     char    writeHeaderChromosomes(ogGenome *pGenome);
     char    writeHeaderProgram(ogGuider *pGuider, ogKeyEncoding *pEncoding, char *commandLine, char *sourceFile1, char *sourceFile2, char *rg);
     char    writeSAMRecord(ogSAM *pSAM);
-    char    writeSAMInfo(char *qname, int flags, char *rname, uint64_t pos, int mapq, char *cigar, char *rnext, uint64_t posNext, uint32_t tlen, char *seq, char *qual, char *annot, uint64_t readNum, char aliFunc, ogSingleRead *rd);
+    char    writeSAMInfo(char *qname, int flags, char *rname, int64_t pos, int mapq, char *cigar, char *rnext, int64_t posNext, uint32_t tlen, char *seq, char *qual, char *annot, uint64_t readNum, char aliFunc, ogSingleRead *rd);
     char    closeFile();
     void    setIsBAM(char bam);
     void    sam_print_sam(int flags, const char *format, ...);

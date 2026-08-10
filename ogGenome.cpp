@@ -83,10 +83,10 @@ void ogGenome::estimateChromosomeSizes(char verbose) {
     if (verbose) {
         fprintf(stderr, "Seq\t      Size\t Cummulative\tName\n");
     }
-    for (genomeSize=nChromosomes=0; kseq_read(seq) >= 0; genomeSize += seq->seq.l, nChromosomes++) {
+    for (genomeSize=nChromosomes=0; kseq_read(seq) >= 0; genomeSize += seq->seq.l+GAP_BETWEEN_CHROMOSOMES*4, nChromosomes++) {
         if (verbose && (nChromosomes % 1000 == 0 || nChromosomes < 50)) fprintf(stderr, "%3d\t%10ld\t%12ld\t%s\n", nChromosomes+1, seq->seq.l, genomeSize + seq->seq.l, seq->name.s);
     }
-    memoryPacked = genomeSize / 4 + 1;
+    memoryPacked = genomeSize / 4 + 1 + nChromosomes; //nChromosomes for gaps
     closeSourceFile();
     allocate();
     
@@ -152,7 +152,7 @@ void ogGenome::packGenome(uint32_t nNtInform, ogKeyEncoding *pEncoding, ogGuider
         chrI->index = chr_i;
         chrI->number = chr_i + 1;
         chrI->size  = seq->seq.l;
-        chrI->cummulative = chrI->start + chrI->size;
+        chrI->cummulative = chrI->start + chrI->size + GAP_BETWEEN_CHROMOSOMES*4;
         pGuider->setSequence(seq->seq.s, seq->seq.l);
         pGuider->fixSequenceCase();
         chrI->validPositions = pGuider->countGuides();
@@ -193,10 +193,17 @@ void ogGenome::packGenome(uint32_t nNtInform, ogKeyEncoding *pEncoding, ogGuider
                 if (n > 0 && n % (nNtInform * 50) == 0) fprintf(stderr, "/\n");
             }
         }
+        // Aug 9th 2026
+        if (GAP_BETWEEN_CHROMOSOMES > 0) {
+            for (n=0; n < GAP_BETWEEN_CHROMOSOMES; n++) *++pack_i = 0; // set A's in gaps
+        }
+        // Aug 9th 2026
+            
         if (withN > 0) {
             chrI->nPositionsWithN += (withN >> 8) + 1;
             withN = 0;
         }
+        
         validPositions += chrI->validPositions;
         validPositionsOverLen += chrI->validPositionsOverLen;
         nTotalPositionsWithN += chrI->nPositionsWithN;
@@ -501,9 +508,9 @@ ogChromosome  *ogGenome::getGenomicCoordinate(uint32_t genPos) {
     uint32_t mid;
     ogChromosome *chrI;
     while (min < max) {
-        //fprintf(stderr, "P:%u,min:%d,max:%d\n",p,min,max);
         mid = (max + min) >> 1;
         chrI = allChromosomes + mid;
+        //fprintf(stderr, "GenPos:%u | Chr: min=%u,mid=%u,max=%u | Start min:%u, mid:%u, max:%u\n",genPos,min,mid,max,allChromosomes[min].start, allChromosomes[mid].start, allChromosomes[max].start);
         if (genPos > chrI->cummulative) { min = mid+1; }
         else if (genPos < chrI->start) { 
             max = mid - 1; 
@@ -513,6 +520,7 @@ ogChromosome  *ogGenome::getGenomicCoordinate(uint32_t genPos) {
         }
         //else { max = mid - (genPos <= (chrI->cummulative - chrI->size) ? 1 : 0); }
     }
+    //fprintf(stderr, "Output: Chr index=%u, Name=%s, Start=%u\n",min,allChromosomes[min].name,allChromosomes[min].start);
     return allChromosomes + min;
 }
 

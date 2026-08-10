@@ -185,7 +185,7 @@ char ogSamWriter::writeSAMRecord(ogSAM *pSAM) {
     return 1;
 }
 
-char ogSamWriter::writeSAMInfo(char *qname, int flags, char *rname, uint64_t pos, int mapq, char *cigar, char *rnext, uint64_t posNext, uint32_t tlen, char *seq, char *qual, char *annot, uint64_t readNum, char aliFunc, ogSingleRead *rd) {
+char ogSamWriter::writeSAMInfo(char *qname, int flags, char *rname, int64_t pos, int mapq, char *cigar, char *rnext, int64_t posNext, uint32_t tlen, char *seq, char *qual, char *annot, uint64_t readNum, char aliFunc, ogSingleRead *rd) {
 
     //if (posNext > 1000000000) {
         // 1 253 408 782
@@ -220,7 +220,7 @@ char ogSamWriter::writeSAMInfo(char *qname, int flags, char *rname, uint64_t pos
     
     
     sam_print_sam(flags,
-            "%s\t%u\t%s\t%llu\t%d\t%s\t%s\t%llu\t%d\t%s\t%s\t%srn:i:%llu\taf:A:%c\tcr:Z:%uM,%uX,%uS,%uI,%uD,%soc\t%s\n",
+            "%s\t%u\t%s\t%lld\t%d\t%s\t%s\t%lld\t%d\t%s\t%s\t%srn:i:%llu\taf:A:%c\tcr:Z:%uM,%uX,%uS,%uI,%uD,%soc\t%s\n",
             qname,
             flags,
             rname,

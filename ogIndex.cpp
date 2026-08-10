@@ -334,7 +334,7 @@ FILE *ogIndex::openIndexFileAtSection(char section) {
     FILE *pfile;    
     uint64_t    uis = sizeof(uint64_t);
     uint64_t    readPositions[2];
-    
+        
     if (section == 0) {
         // Create
         int i;
@@ -347,10 +347,14 @@ FILE *ogIndex::openIndexFileAtSection(char section) {
         fseek(pfile, 0, SEEK_SET);
     } else {
         pfile = fopen(indexFileName, "r+b");
+        if (pfile == NULL) {
+            fprintf(stderr, "\n==> Index File Not Found <==\n[%s]\n", indexFileName);
+        }
+        //fprintf(stderr, "\n ==> Operation in Index section:%c\n",section+48);
         fseek(pfile, FILE_HEAD_POINT + uis * 2 * (section-1), SEEK_SET);
         fread(&readPositions, uis, 2, pfile);
+        //fprintf(stderr, ")) Opening Index at Section %d. Physical Position = %llu, Size =%llu ((\n", (uint32_t) section, readPositions[1], readPositions[0]);
         fseek(pfile, readPositions[1], SEEK_SET);
-        //fprintf(stderr, ")) Opening Index at Section %d. Physical Position = %u, Size =%u ((\n", (uint32_t) section, readPositions[1], readPositions[0]);
     }
     return pfile;
 }
@@ -452,7 +456,7 @@ void ogIndex::generate(char *pSourceFileName, uint16_t userKeySize, char *pDestF
     fprintf(stderr, "==== Index process started ====\n");
 
     header.nKeyCountsAtQ95 = 200; // Default
-    strncpy(header.indexVersion, "oriGen Index v0.8;", MAX_VERSION_NAME);
+    strncpy(header.indexVersion, "oriGen Index v0.91;", MAX_VERSION_NAME);
     strncpy(header.sourceFileName, pSourceFileName, MAX_OGINDEX_FILENAME);
     strncpy(header.encodingName, pEncoding->getName(), MAX_VERSION_NAME);
     strncpy(header.guiderName, pGuider->getName(), MAX_VERSION_NAME);
@@ -740,6 +744,7 @@ void ogIndex::generate(char *pSourceFileName, uint16_t userKeySize, char *pDestF
     fprintf(indexFile, "********************\n");
     fprintf(indexFile, "** oriGen Project **\n");
     fprintf(indexFile, "********************\n");
+    fprintf(indexFile, "ogMapper version : %s\n", OGMAPPER_VERSION);
     fprintf(indexFile, "ogMapper Index   : %s\n", header.indexVersion);
     fprintf(indexFile, "Input Genome File: %s\nGuider           : %s:%s\nEncoding         : %s\nUser Key Size    : %d\nKey Size in Bits : %d\nOutput file(s)   : %s\n", 
             pSourceFileName, pGuider->getName(), pGuider->getConfigFile(), pEncoding->getName(), userKeySize, pEncoding->getSizeInBits(), indexFileName);

@@ -18,6 +18,8 @@
 #define ALL_ASCII           256
 #define MAX_CHROMOSOME_NAME 128
 #define MAX_CHROMOSOME_COMMENT 512
+#define GAP_BETWEEN_CHROMOSOMES 0
+
 
 typedef struct ogChrPosWithN {
     uint32_t        position;
