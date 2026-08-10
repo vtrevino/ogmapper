@@ -743,7 +743,7 @@ void ogReadsMapper::writeSamFromGenomeAndReadPositions(ogReadKeyMapping *pRKM1, 
     uint32_t        genDist1 = (left_r1 > right_r1 ? left_r1 - right_r1 : right_r1 - left_r1);
     uint32_t        genDist2 = (left_r2 > right_r2 ? left_r2 - right_r2 : right_r2 - left_r2);
     //uint32_t        genDist = (left > right ? left-right : right-left);
-    ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(right);
+    ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(left);
     //char            possibleReverse2 = 0;
     
     if (left < pChr1->start || right > pChr1->cummulative) {
@@ -816,7 +816,7 @@ void ogReadsMapper::writeSamFrom1GenomeAndReadPosition(ogReadKeyMapping *pRKM1, 
     ogSingleRead    *pR1 = pRKM1->read;
     uint32_t        left_r1 = grp1->genomePosition - grp1->readPosition;
     uint32_t        right_r1 = left_r1 + pR1->lenSeq;
-    ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(right_r1);
+    ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(left_r1);
     
     if (*pR1->pCigar == 0) {
         //fprintf(stderr, "{ R1 %u:%s:%u: }\n", left_r1, pChr1->name, left_r1 - pChr1->start);
@@ -889,7 +889,7 @@ void ogReadsMapper::writeSamFromGenomeAndReadPositionsMapUnmap(ogReadKeyMapping 
     left_r1 = pR1->cigarLeftPos;
     right_r1 = pR1->cigarRightPos;
     
-    ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(right_r1);
+    ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(left_r1);
     
     pSamWri->writeSAMInfo(
         pR1->pId,
