@@ -746,11 +746,17 @@ void ogReadsMapper::writeSamFromGenomeAndReadPositions(ogReadKeyMapping *pRKM1, 
     ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(left);
     //char            possibleReverse2 = 0;
     
-    if (left < pChr1->start || right > pChr1->cummulative) {
+    if (left < pChr1->start || right >= pChr1->cummulative) {
         // Problem.
-        //fprintf(stderr, ">>>> Problem reads [%s]\n", pR1->pId);
-        if (left < pChr1->start && right > pChr1->cummulative) writeSamFromReadKeyMapsUnmapped(pRKM1, pRKM2, pSamWri);
-        else if (left_r1 < pChr1->start || right_r1 > pChr1->cummulative) writeSamFromGenomeAndReadPositionsMapUnmap(pRKM2, pRKM1, grp2, pSamWri);
+        //fprintf(stderr, "\n>>>> Problem reads [%s]\n", pR1->pId);
+        //fprintf(stderr, "Abs r1: left=%u, right=%u | r2: left=%u, right=%u\n",left_r1,right_r1,left_r2,right_r2);
+        //fprintf(stderr, "   Chr: name=[%s], start=%u, size=%u, cummulative=%u\n",pChr1->name, pChr1->start, pChr1->size, pChr1->cummulative);
+        //fprintf(stderr, "Rel r1: left=%d, right=%d | r2: left=%d, right=%d\n",left_r1+1-pChr1->start,right_r1+1-pChr1->start,left_r2+1-pChr1->start,right_r2+1-pChr1->start);
+        char out1 = (left_r1 < pChr1->start || right_r1 >= pChr1->cummulative);
+        char out2 = (left_r2 < pChr1->start || right_r2 >= pChr1->cummulative);
+
+        if (out1 && out2) writeSamFromReadKeyMapsUnmapped(pRKM1, pRKM2, pSamWri);
+        else if (out1) writeSamFromGenomeAndReadPositionsMapUnmap(pRKM2, pRKM1, grp2, pSamWri);
         else writeSamFromGenomeAndReadPositionsMapUnmap(pRKM1, pRKM2, grp1, pSamWri);
         return;
     }
