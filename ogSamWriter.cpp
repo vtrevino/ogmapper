@@ -225,7 +225,7 @@ char ogSamWriter::writeSAMInfo(char *qname, int flags, char *rname, int64_t pos,
             flags,
             rname,
             pos,
-            (mapq >= 95 ? 60 : (mapq < 1 ? 0 : mapq*100/60)),  // mapq // (mapq >= 95 ? 60 : (mapq < 1 ? 0 : mapq*100/60))
+            (mapq >= 95 ? 60 : (mapq < 1 ? 0 : mapq*63/100)),  // mapq // (mapq >= 95 ? 60 : (mapq < 1 ? 0 : mapq*60/100))
             cigar,
             rnext == NULL ? ASTERISK : rnext,
             posNext,
