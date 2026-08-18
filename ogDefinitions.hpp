@@ -15,7 +15,7 @@ extern "C" {
 #include <time.h>
 #include <stdint.h>
 
-#define OGMAPPER_VERSION    "v1.1.0_09-Aug-2026"
+#define OGMAPPER_VERSION    "v1.1.1_16-Aug-2026"
 
 #define getAlignmentCigar   getAlignment
     
