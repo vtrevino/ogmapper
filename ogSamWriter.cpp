@@ -43,14 +43,14 @@ char ogSamWriter::openFile(char *filename) {
         strncpy(outFileName, filename, MAX_SAM_FILENAME);
         int l = strlen(filename);
         if (l > 4) {
-            /**
+            
             if ((filename[l-3] == 'B' || filename[l-3] == 'b') && 
                     (filename[l-2] == 'A' || filename[l-2] == 'a') &&
                     (filename[l-1] == 'M' || filename[l-1] == 'm') && 
                     (filename[l-4] == '.') ) {
                 isBAM = 1;
             }
-             **/
+            
             if ((filename[l-2] == 'G' || filename[l-2] == 'g') &&
                     (filename[l-1] == 'Z' || filename[l-1] == 'z') && 
                     (filename[l-3] == '.') ) {

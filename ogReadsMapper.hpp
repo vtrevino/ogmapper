@@ -68,6 +68,8 @@ public:
     uint64_t                nReadsMappedOther;
     uint64_t                nReadsUnmapped;
     uint64_t                nReadsAlternMaps; // no se suman a todos
+    int64_t                 nFwdKeysR1, nFwdKeysR2;
+    int64_t                 nRevKeysR1, nRevKeysR2;
     ogReadKeyMapping        *pRdKeyMap[2]; // Exclusive to this object
     ogReadKeyMapping        *pRdKeyMapRd1, *pRdKeyMapPair;
     ogSAM                   sam[2];

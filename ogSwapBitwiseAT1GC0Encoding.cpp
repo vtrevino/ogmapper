@@ -40,7 +40,7 @@ const char *ogSwapBitwiseAT1GC0Encoding::getShortExtensionName() {
 
 void ogSwapBitwiseAT1GC0Encoding::setSizeInChars(uint16_t size) {
     sizeInChars = size;
-    sizeInBits = sizeInChars / 2;
+    sizeInBits = sizeInChars;
     keyCode = 0x00000001 << (sizeInBits - 1);
     keyCodeRC = 0x00000001;
     maskCode = 0xFFFFFFFF >> (32 - sizeInBits);    
@@ -56,6 +56,7 @@ uint32_t ogSwapBitwiseAT1GC0Encoding::getFwdKey(char *pSeq) {
         if ((a=ascii2bits[*pSeq]))  {
             if (a == 2) {
                 validKey = 0;
+                pSeq += 2;
                 break;
             }
             key |= code1;
@@ -76,6 +77,7 @@ uint32_t ogSwapBitwiseAT1GC0Encoding::getRevKey(char *pSeq) {
         if ((a=ascii2bits[*pSeq]))  {
             if (a == 2) {
                 validKey = 0;
+                pSeq -= 2;
                 break;
             }
             key |= code1;

@@ -41,6 +41,10 @@ ogReadsMapper::ogReadsMapper(ogMappingParameters *pMapParameters, ogScheduler *p
     nReadsMappedOther = 0;
     nReadsUnmapped = 0;
     nReadsAlternMaps = 0;
+    nFwdKeysR1 = 0;
+    nFwdKeysR2 = 0;
+    nRevKeysR1 = 0;
+    nRevKeysR2 = 0;
     productionMode = prodMode;
     pClonedGuider = pMapParams->pGuiderDontUseIt->clone();
     isPaired = isPairedReads;
@@ -126,8 +130,12 @@ void ogReadsMapper::countRead(ogSingleRead *theRead) {
     clock_t start_t = clock();
     //clock_t curr_t;
     pRdKeyMapRd1->setRead(theRead); // Calculates Keys
+    nFwdKeysR1 += pRdKeyMapRd1->nFwdPos;
+    nRevKeysR1 += pRdKeyMapRd1->nRevPos;
     if (theRead->isPaired) {
         pRdKeyMapPair->setRead(theRead->pairedRead);
+        nFwdKeysR2 += pRdKeyMapPair->nFwdPos;
+        nRevKeysR2 += pRdKeyMapPair->nRevPos;
     }
     preparation += duration_microsec(clock(), start_t);
 
@@ -251,8 +259,12 @@ void ogReadsMapper::mapRead(ogSingleRead *theRead) {
     clock_t start_t = clock();
     clock_t curr_t;
     pRdKeyMapRd1->setRead(theRead); // Calculates Keys
+    nFwdKeysR1 += pRdKeyMapRd1->nFwdPos;
+    nRevKeysR1 += pRdKeyMapRd1->nRevPos;
     if (theRead->isPaired) {
         pRdKeyMapPair->setRead(theRead->pairedRead);
+        nFwdKeysR2 += pRdKeyMapPair->nFwdPos;
+        nRevKeysR2 += pRdKeyMapPair->nRevPos;
     }
     curr_t = clock();
     preparation += duration_microsec(curr_t, start_t);
@@ -704,7 +716,7 @@ void ogReadsMapper::writeSamFromGenomeAndReadPositions(ogReadKeyMapping *pRKM1, 
 
     ogSingleRead    *pR1 = pRKM1->read;
     ogSingleRead    *pR2 = pRKM2->read;
-    uint32_t        left_r1 = grp1->genomePosition - grp1->readPosition; // - (pR1->cigarLeftType == 'I' || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0) + (pR1->cigarLeftType == 'S' ? pR1->cigarLeft : 0) + pR1->cigarIns - pR2->cigarDel;
+    uint32_t        left_r1 = (grp1->genomePosition < grp1->readPosition ? 0 : grp1->genomePosition - grp1->readPosition); // - (pR1->cigarLeftType == 'I' || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0) + (pR1->cigarLeftType == 'S' ? pR1->cigarLeft : 0) + pR1->cigarIns - pR2->cigarDel;
     uint32_t        right_r1 = left_r1 + pR1->lenSeq;
 
     if (*pR1->pCigar == 0) {
@@ -720,7 +732,7 @@ void ogReadsMapper::writeSamFromGenomeAndReadPositions(ogReadKeyMapping *pRKM1, 
         //fprintf(stderr,"Post left_r1:%u, right_r1:%u\n", left_r1, right_r1);
     //}
     
-    uint32_t        left_r2 = grp2->genomePosition - grp2->readPosition; // - (pR2->cigarLeftType == 'I' || pR2->cigarLeftType == 'D' ? pR2->cigarLeft : 0) + (pR2->cigarLeftType == 'S' ? pR2->cigarLeft : 0) + pR2->cigarIns - pR2->cigarDel;
+    uint32_t        left_r2 = (grp2->genomePosition < grp2->readPosition ? 0 : grp2->genomePosition - grp2->readPosition); // - (pR2->cigarLeftType == 'I' || pR2->cigarLeftType == 'D' ? pR2->cigarLeft : 0) + (pR2->cigarLeftType == 'S' ? pR2->cigarLeft : 0) + pR2->cigarIns - pR2->cigarDel;
     uint32_t        right_r2 = left_r2 + pR2->lenSeq;
     if (*pR2->pCigar == 0) {
         buildPlainCIGARorWFA(pRKM2, pR2, left_r2, grp2->isReverse);
@@ -820,7 +832,7 @@ void ogReadsMapper::writeSamFromGenomeAndReadPositions(ogReadKeyMapping *pRKM1, 
 
 void ogReadsMapper::writeSamFrom1GenomeAndReadPosition(ogReadKeyMapping *pRKM1, ogGenomeAndReadPosition *grp1, ogSamWriter *pSamWri) {
     ogSingleRead    *pR1 = pRKM1->read;
-    uint32_t        left_r1 = grp1->genomePosition - grp1->readPosition;
+    uint32_t        left_r1 = (grp1->genomePosition < grp1->readPosition ? 0 : grp1->genomePosition - grp1->readPosition);
     uint32_t        right_r1 = left_r1 + pR1->lenSeq;
     ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(left_r1);
     
@@ -881,7 +893,7 @@ void ogReadsMapper::writeSamFrom1UnmappedRead(ogReadKeyMapping *pRKM1, ogSamWrit
 void ogReadsMapper::writeSamFromGenomeAndReadPositionsMapUnmap(ogReadKeyMapping *pRKM1, ogReadKeyMapping *pRKM2, ogGenomeAndReadPosition *grp1, ogSamWriter *pSamWri) {
     ogSingleRead    *pR1 = pRKM1->read;
     ogSingleRead    *pR2 = pRKM2->read;
-    uint32_t        left_r1 = grp1->genomePosition - grp1->readPosition; // - (pR1->cigarLeftType == 'I'  || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0);
+    uint32_t        left_r1 = (grp1->genomePosition < grp1->readPosition ? 0 : grp1->genomePosition - grp1->readPosition); // - (pR1->cigarLeftType == 'I'  || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0);
     uint32_t        right_r1 = left_r1 + pR1->lenSeq;
 
     if (*pR1->pCigar == 0) {
@@ -983,8 +995,8 @@ void ogReadsMapper::writeSamFromReadKeyMapsTranslocated(ogReadKeyMapping *pRKM1,
     ogGenomeAndReadPosition *grp2 = pRKM2->pCandPosMan->getkPos(pRKM2->maxScorePos);
     ogSingleRead    *pR1 = pRKM1->read;
     ogSingleRead    *pR2 = pRKM2->read;
-    uint32_t        left_r1 = grp1->genomePosition - grp1->readPosition; // - (pR1->cigarLeftType == 'I'  || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0);
-    uint32_t        left_r2 = grp2->genomePosition - grp2->readPosition; // - (pR2->cigarLeftType == 'I'  || pR2->cigarLeftType == 'D' ? pR2->cigarLeft : 0);
+    uint32_t        left_r1 = (grp1->genomePosition < grp1->readPosition ? 0 : grp1->genomePosition - grp1->readPosition); // - (pR1->cigarLeftType == 'I'  || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0);
+    uint32_t        left_r2 = (grp2->genomePosition < grp2->readPosition ? 0 : grp2->genomePosition - grp2->readPosition); // - (pR2->cigarLeftType == 'I'  || pR2->cigarLeftType == 'D' ? pR2->cigarLeft : 0);
     uint32_t        right_r1 = left_r1 + pR1->lenSeq;
     uint32_t        right_r2 = left_r2 + pR2->lenSeq;
 
@@ -1054,8 +1066,8 @@ void ogReadsMapper::writeAltRd2SamFromGenomeAndReadPosition(ogReadKeyMapping *pR
     ogSingleRead    *pR1 = pRKM1->read;
     ogSingleRead    *pR2 = pRKM2->read;
     
-    uint32_t        left_r1 = grp1->genomePosition - grp1->readPosition;// - (pR1->cigarLeftType == 'I'  || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0);
-    uint32_t        left_r2 = grp2->genomePosition - grp2->readPosition;// - (pR2->cigarLeftType == 'I'  || pR2->cigarLeftType == 'D' ? pR2->cigarLeft : 0);
+    uint32_t        left_r1 = (grp1->genomePosition < grp1->readPosition ? 0 : grp1->genomePosition - grp1->readPosition);// - (pR1->cigarLeftType == 'I'  || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0);
+    uint32_t        left_r2 = (grp2->genomePosition < grp2->readPosition ? 0 : grp2->genomePosition - grp2->readPosition);// - (pR2->cigarLeftType == 'I'  || pR2->cigarLeftType == 'D' ? pR2->cigarLeft : 0);
     uint32_t        right_r1 = left_r1 + pR1->lenSeq;
     uint32_t        right_r2 = left_r2 + pR2->lenSeq;
 
@@ -1104,8 +1116,8 @@ void ogReadsMapper::writeAltRd1SamFromGenomeAndReadPosition(ogReadKeyMapping *pR
     ogSingleRead    *pR1 = pRKM1->read;
     ogSingleRead    *pR2 = pRKM2->read;
     
-    uint32_t        left_r1 = grp1->genomePosition - grp1->readPosition; // - (pR1->cigarLeftType == 'I'  || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0);
-    uint32_t        left_r2 = grp2->genomePosition - grp2->readPosition; // - (pR2->cigarLeftType == 'I'  || pR2->cigarLeftType == 'D' ? pR2->cigarLeft : 0);
+    uint32_t        left_r1 = (grp1->genomePosition < grp1->readPosition ? 0 : grp1->genomePosition - grp1->readPosition); // - (pR1->cigarLeftType == 'I'  || pR1->cigarLeftType == 'D' ? pR1->cigarLeft : 0);
+    uint32_t        left_r2 = (grp2->genomePosition < grp2->readPosition ? 0 : grp2->genomePosition - grp2->readPosition); // - (pR2->cigarLeftType == 'I'  || pR2->cigarLeftType == 'D' ? pR2->cigarLeft : 0);
     uint32_t        right_r1 = left_r1 + pR1->lenSeq;
     uint32_t        right_r2 = left_r2 + pR2->lenSeq;
     //if (*pR2->pCigar == 0) {

@@ -1602,13 +1602,20 @@ void ogIndex::mapOrCount(char *pSourceFileName1, char *pSourceFileName2, char mo
     gzFile     fastaGZ_1, fastaGZ_2;
     char       isPaired = (pSourceFileName2 != NULL);
     uint16_t    iTh;
-    uint64_t    fs1, fs2;
+    int64_t     fs1, fs2;
+    int64_t     fwdKeys1=0, fwdKeys2=0;
+    int64_t     revKeys1=0, revKeys2=0;
     
     fs1 = __get_file_size(pSourceFileName1);
     fastaGZ_1 = gzopen(pSourceFileName1, "r");
     if (isPaired) {
-        fs2 = __get_file_size(pSourceFileName1);
+        fs2 = __get_file_size(pSourceFileName2);
         fastaGZ_2 = gzopen(pSourceFileName2, "r");
+    }
+    if (fs1 < 0 || fs2 < 0) {
+        if (fs1 < 0) fprintf(stderr, "*** ERROR IN FILE [%s] *** \n",pSourceFileName1);
+        if (fs2 < 0) fprintf(stderr, "*** ERROR IN FILE [%s] *** \n",pSourceFileName2);
+        return;
     }
     
     FILE *pFU1 = NULL;
@@ -1714,8 +1721,9 @@ void ogIndex::mapOrCount(char *pSourceFileName1, char *pSourceFileName2, char mo
     //    caReads->push(new ogSingleRead());
     //}
 
+    fprintf(stderr, "/--------------------------------------\\\n");
     fprintf(stderr, "|1 Million Reads: .=25,000 %2u+1 threads|\n", nThreads); fflush(stderr); // mode == 'M' ? "mapping" : "counting"
-    fprintf(stderr, "|______________________________________|Reads/s|Mreads|Elap t|Tot r/s|%%Done|Left t|");fflush(stderr); // Map %%|
+    fprintf(stderr, "|--------------------------------------|Reads/s|Mreads|Elap t|Tot r/s|%%Done|Left t|");fflush(stderr); // Map %%|
     if (nThreads > 0) {
         hilos = (thread **) malloc(nThreads * sizeof(thread *));
         for (iTh=0; iTh < nThreads; iTh++) {
@@ -1945,6 +1953,11 @@ void ogIndex::mapOrCount(char *pSourceFileName1, char *pSourceFileName2, char mo
         nReadsMappedTrans += rdMapr[iTh]->nReadsMappedTrans;
         nReadsMappedOther += rdMapr[iTh]->nReadsMappedOther;
         nReadsUnmapped += rdMapr[iTh]->nReadsUnmapped;
+        fwdKeys1 += rdMapr[iTh]->nFwdKeysR1;
+        fwdKeys2 += rdMapr[iTh]->nFwdKeysR2;
+        revKeys1 += rdMapr[iTh]->nRevKeysR1;
+        revKeys2 += rdMapr[iTh]->nRevKeysR2;
+        
     }
     uint64_t totalElapsed = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     uint64_t rr =     nReadsMappedR1R2+nReadsMappedR2R1+nReadsMappedR1+nReadsMappedR2+nReadsMappedTrans+nReadsMappedOther; //+nReadsUnmapped
@@ -1970,6 +1983,8 @@ void ogIndex::mapOrCount(char *pSourceFileName1, char *pSourceFileName2, char mo
     fprintf(stderr, "Total Reads Processed = %lld\n", rAssigned);
     fprintf(stderr, "Total Reads Mapped    = %lld (%.3f%%)\n", (rAssigned-nReadsUnmapped), (float) (rAssigned-nReadsUnmapped)*100/rAssigned);
     fprintf(stderr, "Total Reads Unmapped  = %lld (%.3f%%)\n", nReadsUnmapped, (float) nReadsUnmapped*100/rAssigned);
+    fprintf(stderr, "Total Keys Identified = %lld (F1=%lld R1=%lld F2=%lld R2=%lld)\n", fwdKeys1+revKeys1+fwdKeys2+revKeys2, fwdKeys1,  revKeys1, fwdKeys2, revKeys2);
+    fprintf(stderr, "Average Keys/Read     = %.3f (F1=%.3f R1=%.3f F2=%.3f R2=%.3f)\n", (double) (fwdKeys1+revKeys1+fwdKeys2+revKeys2)/(double) rAssigned, (double) fwdKeys1 / (double) rAssigned,  (double) revKeys1 / (double) rAssigned, (double) fwdKeys2 / (double) rAssigned, (double) revKeys2 / (double) rAssigned);
     fprintf(stderr, "Elapsed Time          = %.2f s\n", (float) totalElapsed / 1000);
     fprintf(stderr, "Reading Time          = %.2f s\n", (float) reading / (float) 1000000000);
     fprintf(stderr, "Preparing Time        = %.2f s\n", (float) preparing / (float) 1000000000);

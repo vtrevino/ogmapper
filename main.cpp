@@ -195,6 +195,7 @@ void printHelp() {
     fprintf(stderr, "                 In the case that ID is numeric, 'RG:i:0' will be added instead.\n");
     fprintf(stderr, "        -bs <n>  Sets buffer size sam output file.\n");
     fprintf(stderr, "\n");
+    fprintf(stderr, "ogMapper version %s\n", OGMAPPER_VERSION);
     
 }
 
