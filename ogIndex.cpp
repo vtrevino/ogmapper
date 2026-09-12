@@ -1723,7 +1723,7 @@ void ogIndex::mapOrCount(char *pSourceFileName1, char *pSourceFileName2, char mo
 
     fprintf(stderr, "/--------------------------------------\\\n");
     fprintf(stderr, "|1 Million Reads: .=25,000 %2u+1 threads|", nThreads); fflush(stderr); // mode == 'M' ? "mapping" : "counting"
-    const char *TITLE = "|--------------------------------------|Reads/s|Mreads|Elap t|Tot r/s| %Done|Left t|";
+    const char *TITLE = "|--------------------------------------|Reads/s|Mreads|Elap t|Tot r/s|%Done|Left t|";
     //fprintf(stderr, "%s", TITLE);fflush(stderr); // Map %%|
     if (nThreads > 0) {
         hilos = (thread **) malloc(nThreads * sizeof(thread *));
