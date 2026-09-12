@@ -1722,8 +1722,9 @@ void ogIndex::mapOrCount(char *pSourceFileName1, char *pSourceFileName2, char mo
     //}
 
     fprintf(stderr, "/--------------------------------------\\\n");
-    fprintf(stderr, "|1 Million Reads: .=25,000 %2u+1 threads|\n", nThreads); fflush(stderr); // mode == 'M' ? "mapping" : "counting"
-    fprintf(stderr, "|--------------------------------------|Reads/s|Mreads|Elap t|Tot r/s|%%Done|Left t|");fflush(stderr); // Map %%|
+    fprintf(stderr, "|1 Million Reads: .=25,000 %2u+1 threads|", nThreads); fflush(stderr); // mode == 'M' ? "mapping" : "counting"
+    const char *TITLE = "|--------------------------------------|Reads/s|Mreads|Elap t|Tot r/s| %Done|Left t|";
+    //fprintf(stderr, "%s", TITLE);fflush(stderr); // Map %%|
     if (nThreads > 0) {
         hilos = (thread **) malloc(nThreads * sizeof(thread *));
         for (iTh=0; iTh < nThreads; iTh++) {
@@ -1893,7 +1894,8 @@ void ogIndex::mapOrCount(char *pSourceFileName1, char *pSourceFileName2, char mo
                         //for (int ith=0; ith <= nThreads; ith++) nUnMap += rdMapr[ith]->nReadsUnmapped;
                         //fprintf(stderr, "%4.1f%%|", (float) (100.0- ((float) nUnMap*100.0)/(float) rAssigned));
                     }
-                    fprintf(stderr, "\n"); 
+                    if (r % 50000000 == 0) fprintf(stderr, "\n%s\n", TITLE); else fprintf(stderr, "\n");
+                    fflush(stderr);
                     block = end;
                 }
                 fprintf(stderr, "%c", (r % 250000 == 0 ? '|' : '.'));

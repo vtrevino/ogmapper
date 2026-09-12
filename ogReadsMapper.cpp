@@ -909,6 +909,12 @@ void ogReadsMapper::writeSamFromGenomeAndReadPositionsMapUnmap(ogReadKeyMapping 
     
     ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(left_r1);
     
+    if (left_r1 < pChr1->start || right_r1 >= pChr1->cummulative) {
+        // Problem.
+        writeSamFromReadKeyMapsUnmapped(pRKM1, pRKM2, pSamWri);
+        return;
+    }
+    
     pSamWri->writeSAMInfo(
         pR1->pId,
         SAMFLAG_READ_PAIRED | SAMFLAG_MATE_UNMAPPED | (pR1->readIndex == 1 ? SAMFLAG_READ1 : SAMFLAG_READ2) | (grp1->isReverse ? SAMFLAG_READ_REVCOMP : 0),
@@ -1023,6 +1029,22 @@ void ogReadsMapper::writeSamFromReadKeyMapsTranslocated(ogReadKeyMapping *pRKM1,
     
     ogChromosome   *pChr1 = pRKM1->pGenome->getGenomicCoordinate(left_r1);
     ogChromosome   *pChr2 = pRKM2->pGenome->getGenomicCoordinate(left_r2);
+    
+    if (left_r1 < pChr1->start || right_r1 >= pChr1->cummulative || left_r2 < pChr2->start || right_r2 >= pChr2->cummulative) {
+        // Problem.
+        //fprintf(stderr, "\n>>>> Problem reads [%s]\n", pR1->pId);
+        //fprintf(stderr, "Abs r1: left=%u, right=%u | r2: left=%u, right=%u\n",left_r1,right_r1,left_r2,right_r2);
+        //fprintf(stderr, "  Chr1: name=[%s], start=%u, size=%u, cummulative=%u\n",pChr1->name, pChr1->start, pChr1->size, pChr1->cummulative);
+        //fprintf(stderr, "  Chr2: name=[%s], start=%u, size=%u, cummulative=%u\n",pChr2->name, pChr2->start, pChr2->size, pChr2->cummulative);
+        //fprintf(stderr, "Rel r1: left=%d, right=%d | r2: left=%d, right=%d\n",left_r1+1-pChr1->start,right_r1+1-pChr1->start,left_r2+1-pChr1->start,right_r2+1-pChr1->start);
+        char out1 = (left_r1 < pChr1->start || right_r1 >= pChr1->cummulative);
+        char out2 = (left_r2 < pChr2->start || right_r2 >= pChr2->cummulative);
+
+        if (out1 && out2) writeSamFromReadKeyMapsUnmapped(pRKM1, pRKM2, pSamWri);
+        else if (out1) writeSamFromGenomeAndReadPositionsMapUnmap(pRKM2, pRKM1, grp2, pSamWri);
+        else writeSamFromGenomeAndReadPositionsMapUnmap(pRKM1, pRKM2, grp1, pSamWri);
+        return;
+    }
     
     pSamWri->writeSAMInfo(
         pR1->pId,
